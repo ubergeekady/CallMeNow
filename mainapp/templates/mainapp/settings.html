@@ -1,0 +1,77 @@
+
+{% extends 'mainapp/base.html' %}
+
+
+{% block body %}
+
+
+
+
+      <div class="be-content">
+        <div class="main-content container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading"><span class="title">Settings</span></div>
+                <div class="panel-body">
+
+                {% if successmessage %}
+                  <div role="alert" class="alert alert-success">
+                    <span class="icon mdi mdi-close-circle-o"></span>{{successmessage}}
+                  </div>
+                {% endif %}
+
+
+                  <form action="" method="post" style="border-radius: 0px;" class="form-horizontal group-border-dashed">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Timezone</label>
+                      <div class="col-sm-6">
+                        <select class="form-control" name="timezone">
+                          {% for t in timezones%}
+                            {% if t == account.timezone %}
+                              <option selected>{{t}}</option>
+                            {% else %}
+                              <option>{{t}}</option>
+                            {% endif %}
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Blacklisted Numbers</label>
+                      <div class="col-sm-6">
+                        <textarea class="form-control" rows="6" name="numberblacklist">{{account.numberblacklist}}</textarea>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Backlisted IP Addresses</label>
+                      <div class="col-sm-6">
+                        <textarea class="form-control" rows="6" name="ipblacklist">{{account.ipblacklist}}</textarea>
+                      </div>
+                    </div>        
+
+                     <div class="col-xs-6">
+                        <p class="text-right">
+                          <button type="submit" class="btn btn-space btn-primary btn-xl">Update</button>
+                        </p>
+                      </div>                                
+
+                  </form>
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+{% endblock %}

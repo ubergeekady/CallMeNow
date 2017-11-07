@@ -1,0 +1,100 @@
+
+
+{% extends 'mainapp/base.html' %}
+
+
+{% block body %}
+
+
+
+      <div class="be-content">
+        <div class="main-content container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading"><span class="title">Lead Details : #223345</span></div>
+                <div class="panel-body">
+
+                  <table class="table table-condensed table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Status</th>
+                        <th>Lead Information</th>
+                        <th>Widget</th>
+                        <th>Date/Time</th>
+                        <th>Representative</th>                        
+                        <th>Call Details</th>
+                        <th>Call Now</th>                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>22345</td>
+                        <td><span class="label label-danger">Uncontacted</span></td>
+                        <td>Name : Shanu Athiparambath<br />Phone : +91.99928828<br />Email: shanu@shanu.com<br />IP : 22.22.22.22<br />Location: New Delhi</td>
+                        <td>Sales Widget #1</td>
+                        <td>23rd May, 2010 12:30 PM</td>
+                        <td></td>
+                        <td></td>
+                        <td class="actions">
+                          <div class="icon-container" style="background-color: unset;">
+                            <div class="icon"><a href="#"><span class="mdi mdi-phone"></span></a></div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>                
+                  
+
+                  <h4>Call History</h4><br />
+
+                  <table class="table table-condensed table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Date and Time</th>
+                        <th>Duration</th>
+                        <th>Agent</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>22345</td>
+                        <td>23rd May, 2010 12:30 PM</td>
+                        <td>234 seconds</td>
+                        <td>Rick Morty</td>
+                      </tr>
+                    </tbody>
+                  </table>                
+
+                  <h4>Notes</h4><br />
+
+
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <textarea class="form-control" rows="6"></textarea>
+                      </div>
+                    </div>
+
+                    <br /><br />
+
+                     <div class="col-xs-6">
+                        <p class="text-right">
+                          <button type="submit" class="btn btn-space btn-primary btn-xl">Save</button>
+                        </p>
+                      </div>                                
+
+                  </form>
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+{% endblock %}

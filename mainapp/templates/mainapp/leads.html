@@ -1,0 +1,77 @@
+
+{% extends 'mainapp/base.html' %}
+
+
+{% block body %}
+
+
+
+      <div class="be-content">
+        <div class="main-content container-fluid">
+          
+
+
+            <div class="row">
+            <!--Bordered Table-->
+            <div class="col-sm-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">Leads
+                </div>
+                <div class="panel-body">
+                  <table class="table table-condensed table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Status</th>
+                        <th>Lead Information</th>
+                        <th>Widget</th>
+                        <th>Date/Time</th>
+                        <th>Representative</th>                        
+                        <th>Call Details</th>
+                        <th class="actions"></th>                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>22345</td>
+                        <td><span class="label label-danger">Uncontacted</span></td>
+                        <td>Name : Shanu Athiparambath<br />Phone : +91.99928828<br />Email: shanu@shanu.com</td>
+                        <td>Sales Widget #1</td>
+                        <td>23rd May, 2010 12:30 PM</td>
+                        <td></td>
+                        <td></td>
+                        <td class="actions"><a href="#" class="icon"><i class="mdi mdi-settings"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>22345</td>
+                        <td><span class="label label-success">Call Completed</span></td>
+                        <td>Name : Shanu Athiparambath<br />Phone : +91.99928828<br />Email: shanu@shanu.com</td>
+                        <td valign="top">Sales Widget #1</td>
+                        <td>23rd May, 2010 12:30 PM</td>
+                        <td>Rick Morty</td>
+                        <td>Call Duration : 20 seconds<br />Play</td>
+                        <td class="actions"><a href="#" class="icon"><i class="mdi mdi-settings"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>22345</td>
+                        <td><span class="label label-warning">Missed call</span></td>
+                        <td>Name : Shanu Athiparambath<br />Phone : +91.99928828<br />Email: shanu@shanu.com</td>
+                        <td>Sales Widget #1</td>
+                        <td>23rd May, 2010 12:30 PM</td>
+                        <td></td>
+                        <td></td>
+                        <td class="actions"><a href="#" class="icon"><i class="mdi mdi-settings"></i></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+ 
+{% endblock %}

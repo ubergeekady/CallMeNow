@@ -1,0 +1,63 @@
+
+{% extends 'mainapp/base.html' %}
+
+
+{% block body %}
+
+
+
+      <div class="be-content">
+        <div class="main-content container-fluid">
+          
+
+
+            <div class="row">
+            <!--Bordered Table-->
+            <div class="col-sm-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">Widgets
+                  <div class="tools"><a href="{% url 'mainapp:widgets_create_new' %}"><button class="btn btn-space btn-default"><i class="icon icon-left mdi mdi-globe"></i>Create New</button></a></div>
+                </div>
+                <div class="panel-body">
+                  <table class="table table-condensed table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Status(Live/Paused)</th>
+                        <th class="actions"></th>                        
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for w in widget %}
+                      <tr>
+                        <td>{{w.id}}</td>
+                        <td>{{w.name}}</td>
+                        <td>
+                          <div class="switch-button switch-button-success">
+                            <input type="checkbox" checked="" name="swt5" id="swt5"><span>
+                              <label for="swt5"></label></span>
+                          </div>
+                        </td>
+                        <td class="actions">
+                          <a href="{% url 'mainapp:widget_edit' w.id %}" class="icon"><i class="mdi mdi-settings"></i></a> &nbsp; &nbsp;
+                          <a href="#" class="icon"><i class="mdi mdi-code"></i></a> &nbsp; &nbsp;
+                          <a href="#" class="icon"><i class="mdi mdi-view-list"></i></a>                          
+                        </td>                        
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+ 
+
+{% endblock %}

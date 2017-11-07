@@ -1,0 +1,95 @@
+
+
+{% extends 'mainapp/base.html' %}
+
+
+{% block body %}
+
+
+
+      <div class="be-content">
+        <div class="main-content container-fluid">
+          
+
+
+            <div class="row">
+            <!--Bordered Table-->
+            <div class="col-sm-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">Team 
+                  <div class="tools"><a href="{% url 'mainapp:team_create_new'%}"><button class="btn btn-space btn-default"><i class="icon icon-left mdi mdi-globe"></i>Create New</button></a>a></div>
+                </div>
+                <div class="panel-body">
+                  <table class="table table-condensed table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Current Availability</th>
+                        <th>Phone</th>                        
+                        <th>Widgets</th>
+                        <th>Role</th>
+                        <th class="actions"></th>                        
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for t in team %}
+                      <tr>
+                        <td>{{t.id}}</td>
+                        <td>
+                          {{t.name}}
+
+                          {% if t.id == user.userprofile.id %}
+                          <b> (Me)</b>
+                          {% endif %}
+
+                        </td>
+                        <td>{{t.user.email}}</td>
+                        <td>
+                          <div class="switch-button switch-button-success">
+                            <input type="checkbox" {% if t.available %}checked{% endif %} name="swt{{t.id}}" id="swt{{t.id}}" onchange="toggleavailability({{t.id}});"><span>
+                              <label for="swt{{t.id}}"></label></span>
+                          </div>
+                        </td>
+                        <td>{{t.phone}}</td>
+                        <td></td>
+                        <td>
+                          {% if t.usertype == "Owner" %}<span class="label label-success">Owner</span>{% endif %}
+                          {% if t.usertype == "Agent" %}<span class="label label-danger">Agent</span>{% endif %}
+                          {% if t.usertype == "Admin" %}<span class="label label-warning">Admin</span>{% endif %}
+                        </td>
+                        <td class="actions"><a href="{% url 'mainapp:team_edit' t.id%}" class="icon"><i class="mdi mdi-settings"></i></a></td>
+                      </tr>
+
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+{% load staticfiles %}
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/toastr.min.css' %}"/>
+
+    <script type="text/javascript">
+
+      function toggleavailability(userid){
+        val = document.getElementById("swt"+userid).checked;
+        url = "/app/team/toggleavailability/"+userid+"/"+val;
+        $.get( url, function( data ) {
+          data = JSON.parse(data)
+          if(data.success){
+              toastr.success("Done");
+          }
+        });
+      }
+    </script>
+
+          </div>
+        </div>
+      </div>
+{% endblock %}

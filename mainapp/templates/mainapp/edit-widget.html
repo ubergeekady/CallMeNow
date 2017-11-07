@@ -1,0 +1,104 @@
+
+{% extends 'mainapp/base.html' %}
+
+
+{% block body %}
+
+
+
+      <div class="be-content">
+        <div class="main-content container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading"><span class="title">Edit Widget : {{ widgetobj.name }}</span></div>
+                <div class="panel-body">
+
+
+                  <form action="" method="post" style="border-radius: 0px;" class="form-horizontal group-border-dashed">
+
+                                    {% csrf_token %}
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Widget Name: </label>
+                      <div class="col-sm-6">
+                        <input type="text" required name="name" value="{{ widgetobj.name }}" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Call Settings: </label>
+                      <div class="col-sm-6">
+                        <div class="be-radio be-radio-color inline">
+                          <input type="radio" {% if widgetobj.call_setting == "AgentToClient"%}checked{% endif %} name="call_setting" id="rad1" value="AgentToClient">
+                          <label for="rad1">Agent to Client</label>
+                        </div>
+                        <div class="be-radio be-radio-color inline">
+                          <input type="radio" {% if widgetobj.call_setting == "ClientToAgent"%}checked{% endif %} name="call_setting" id="rad2" value="ClientToAgent">
+                          <label for="rad2">Client to Agent</label>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Call Algorithm: </label>
+                      <div class="col-sm-6">
+                        <div class="be-radio be-radio-color inline">
+                          <input type="radio" {% if widgetobj.call_algorithm == "Simultaneous"%}checked{% endif %} name="call_algorithm" id="rad3" value="Simultaneous">
+                          <label for="rad3">Simultaneous</label>
+                        </div>
+                        <div class="be-radio be-radio-color inline">
+                          <input type="radio" {% if widgetobj.call_algorithm == "Sequential"%}checked{% endif %} name="call_algorithm" id="rad4" value="Sequential">
+                          <label for="rad4">Sequential</label>
+                        </div>
+                        <div class="be-radio be-radio-color inline">
+                          <input type="radio" {% if widgetobj.call_algorithm == "Randomized"%}checked{% endif %} name="call_algorithm" id="rad5" value="Randomized">
+                          <label for="rad5">Randomized</label>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Capture Leads When Offline: </label>
+                      <div class="col-sm-6">
+                         <div class="switch-button switch-button-success">
+                            <input type="checkbox" {% if widgetobj.capture_leads %}checked{% endif %} name="capture_leads" id="swt5"><span>
+                              <label for="swt5"></label></span>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Show on mobile: </label>
+                      <div class="col-sm-6">
+                         <div class="switch-button switch-button-success">
+                            <input type="checkbox" {% if widgetobj.show_on_mobile %}checked{% endif %} name="show_on_mobile" id="swt6"><span>
+                              <label for="swt6"></label></span>
+                          </div>                        
+                      </div>
+                    </div>
+
+
+                     <div class="col-xs-6">
+                        <p class="text-right">
+                          <button type="submit" class="btn btn-space btn-primary btn-xl">Update</button>
+                        </p>
+                      </div>                                
+
+                  </form>
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+{% endblock %}
