@@ -94,7 +94,7 @@ def sign_up(request):
         uid = uuid.uuid4().hex[:20]
         a = Signups(uuid=uid, name=name, email=email, phone=phone, password=pass1)
         a.save()
-        link = django_settings.HOME_URL+"/emailconfirm/" + uid + "/"
+        link = "https://"+django_settings.HOME_URL+"/emailconfirm/" + uid + "/"
         template = get_template('emails/email_signup.html')
         html_content = template.render({"confirmlink":link})
         subject = "Please validate your email address."
@@ -128,7 +128,7 @@ def forgotpassword(request):
         uid = uuid.uuid4().hex[:20]
         a = ForgotPassword(uuid=uid, user=user)
         a.save()
-        link = django_settings.HOME_URL+"/passwordchange/" + uid + "/"
+        link = "https://"+django_settings.HOME_URL+"/passwordchange/" + uid + "/"
         template = get_template('emails/email_forgotpassword.html')
         html_content = template.render({"confirmlink":link})
         subject = "Password reset link"
@@ -269,7 +269,7 @@ def team_create_new(request):
         uid = uuid.uuid4().hex[:20]
         a = ForgotPassword(uuid=uid, user=user)
         a.save()
-        link = django_settings.HOME_URL+"/passwordchange/" + uid + "/"
+        link = "https://"+django_settings.HOME_URL+"/passwordchange/" + uid + "/"
         print(link)
         template = get_template('emails/email_agentinvite.html')
         html_content = template.render({"confirmlink":link})
@@ -402,6 +402,8 @@ def widget_edit(request, widget_id):
             return render(request, 'mainapp/edit-widget.html', {'error': 'Select a call setting', 'widgetobj': widgetobj})
         if call_algorithm not in["Simultaneous","Randomized"]:
             return render(request, 'mainapp/edit-widget.html', {'error': 'Select a call algorithm', 'widgetobj': widgetobj})
+        widgetobj.call_setting=call_setting
+        widgetobj.call_algorithm=call_algorithm
         widgetobj.capture_leads = False if request.POST.get('capture_leads')==None else True
         widgetobj.show_on_mobile = False if request.POST.get('show_on_mobile')==None else True
         widgetobj.save()
@@ -762,7 +764,7 @@ def call_status(request, uuid):
 
 def ProcessNextCall(widget_id):
     print("process queue"+str(widget_id))
-    homeurl = django_settings.HOME_URL
+    homeurl = "http://"+django_settings.HOME_URL
     widgetobj = Widget.objects.get(pk=widget_id)
     #Are there any calls in queue for this widget and the widget is not locked currently.
     if widgetobj.locked==False:
@@ -898,7 +900,7 @@ def ProcessNextCall(widget_id):
 
 @csrf_exempt
 def plivo_clientfirst_answer_url(request,uuid):
-    homeurl = django_settings.HOME_URL
+    homeurl = "http://" + django_settings.HOME_URL
     print("clientfirst answerurl")
     print(request.body)
     callobject = Calls.objects.get(callmenow_uuid=uuid)
@@ -1016,7 +1018,7 @@ def plivo_clientfirst_answer_url(request,uuid):
 
 @csrf_exempt
 def plivo_clientfirst_dial_url(request, uuid):
-    homeurl = django_settings.HOME_URL
+    homeurl = "http://" + django_settings.HOME_URL
     print("clientfirst dialurl")
     print(request.body)
     callobject = Calls.objects.get(callmenow_uuid=uuid)
@@ -1066,7 +1068,7 @@ def plivo_clientfirst_dial_url(request, uuid):
 
 @csrf_exempt
 def plivo_clientfirst_callback_url(request, uuid):
-    homeurl = django_settings.HOME_URL
+    homeurl = "http://" + django_settings.HOME_URL
     print("clientfirst callbackurl")
     print(request.body)
     callobject = Calls.objects.get(callmenow_uuid=uuid)
@@ -1127,7 +1129,7 @@ def plivo_clientfirst_recording_callback_url(request, uuid):
 
 @csrf_exempt
 def plivo_agentfirst_answer_url(request, uuid):
-    homeurl = django_settings.HOME_URL
+    homeurl = "http://" + django_settings.HOME_URL
     print("agentfirst answerurl")
     print(request.body)
     callobject = Calls.objects.get(callmenow_uuid=uuid)
@@ -1213,7 +1215,7 @@ def plivo_agentfirst_answer_url(request, uuid):
 
 @csrf_exempt
 def plivo_agentfirst_dial_url(request, uuid):
-    homeurl = django_settings.HOME_URL
+    homeurl = "http://" + django_settings.HOME_URL
     print("agentfirst dialurl")
     print(request.body)
     callobject = Calls.objects.get(callmenow_uuid=uuid)
@@ -1264,7 +1266,7 @@ def plivo_agentfirst_dial_url(request, uuid):
 
 @csrf_exempt
 def plivo_agentfirst_callback_url(request, uuid):
-    homeurl = django_settings.HOME_URL
+    homeurl = "http://" + django_settings.HOME_URL
     print("agentfirst callbackurl")
     print(request.body)
     callobject = Calls.objects.get(callmenow_uuid=uuid)

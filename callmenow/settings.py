@@ -24,12 +24,13 @@ SECRET_KEY = 'a^*b=38e%x24wycmeb*wyw&do1q=qn1d&_rrgeo!54a$ii)6ur'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = ["*"]
-
-LOGIN_REDIRECT_URL = '/app/'
-LOGIN_URL='/app/'
-
+SECURE_REDIRECT_EXEMPT = [r"^widgetapi/",r"^plivo/"]
+SECURE_SSL_REDIRECT = True
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL='/'
+STATIC_ROOT = '/home/callmenow/callmenow_static'
+HOME_URL = "8a3c0b62.ngrok.io"
 
 # Application definition
 
@@ -124,11 +125,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
 #Number of seconds after which the user will be logged out.
 SESSION_COOKIE_AGE = 604800
 
-HOME_URL = "http://8a3c0b62.ngrok.io"
 PLIVO_AUTH_ID = 'MAZJJLMZJLMMQ5MWFHMZ'
 PLIVO_AUTH_TOKEN = 'ZTBkZjhhY2M0ZWNkOWFmOTZiZGEzMjM3MDJjZjUx'
 POSTMARK_TOKEN = 'a2097480-d252-4c1f-b15a-1bac69c54699'
