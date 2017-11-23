@@ -141,15 +141,15 @@ SERVER_EMAIL = 'webmaster@callmenowhq.com'
 
 #SMTP Configuration to be used by DJango for sending server error messages
 #PostMark
-EMAIL_HOST = 'smtp.postmarkapp.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'a2097480-d252-4c1f-b15a-1bac69c54699'
-EMAIL_HOST_PASSWORD = 'a2097480-d252-4c1f-b15a-1bac69c54699'
-EMAIL_USE_TLS = True
+#EMAIL_HOST = 'smtp.postmarkapp.com'
+#EMAIL_PORT = 587
+#EMAIL_HOST_USER = 'a2097480-d252-4c1f-b15a-1bac69c54699'
+#EMAIL_HOST_PASSWORD = 'a2097480-d252-4c1f-b15a-1bac69c54699'
+#EMAIL_USE_TLS = True
 
 #ElasticEmail
-#EMAIL_HOST = 'smtp.elasticemail.com'
-#EMAIL_PORT = 587
-#EMAIL_HOST_USER = 'aditya@impulsemedia.co.in'
-#EMAIL_HOST_PASSWORD = '107b1821-551e-46c9-baa0-f21202694f9a'
-#EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.elasticemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'aditya@impulsemedia.co.in'
+EMAIL_HOST_PASSWORD = '107b1821-551e-46c9-baa0-f21202694f9a'
+EMAIL_USE_TLS = True

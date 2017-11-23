@@ -417,7 +417,8 @@ def ajax_widget_agents(request, widget_id):
         try:
             widgetobj = get_object_or_404(Widget, id=widget_id)
             WidgetAgent.objects.filter(widget=widgetobj).delete()
-            k = json.loads(request.body)
+            print(request.body)
+            k = json.loads(request.body.decode('utf-8'))
             for t in k["myarray"]:
                 a = WidgetAgent(widget=widgetobj, user=UserProfile.objects.get(id=t))
                 a.save()
@@ -616,7 +617,7 @@ def subscribe(request, plan_id):
 
 @csrf_exempt
 def razorpay_webhook(request):
-    d = json.loads(request.body)
+    k = json.loads(request.body.decode('utf-8'))
     print(json.dumps(d))
     print(d['payload']['subscription']['entity']['status'])
 
