@@ -298,7 +298,7 @@ def team_edit(request,user_id):
         phone = request.POST.get('phone', "")
         email = request.POST.get('email', "")
         usertype = request.POST.get('usertype', "")
-        available = request.POST.get('available', "")
+        available = request.POST.get('available', True)
 
         if len(name)<2:
             return render(request, 'mainapp/edit-user.html', {'error': 'Please enter a name longer than 2 characters', 'userobj':userobj})
@@ -306,10 +306,15 @@ def team_edit(request,user_id):
             return render(request, 'mainapp/edit-user.html', {'error': 'Please enter a valid phone number', 'userobj':userobj})
         if not is_email(email):
             return render(request, 'mainapp/edit-user.html', {'error': 'Please enter a valid email address', 'userobj':userobj})
-        if usertype not in ["Admin","Agent"]:
-            return render(request, 'mainapp/edit-user.html', {'error': 'Please select a user type', 'userobj':userobj})
+
+        if userobj.usertype != "Owner" and session_usertype != "Agent":
+            if usertype not in ["Admin","Agent"]:
+                return render(request, 'mainapp/edit-user.html', {'error': 'Please select a user type', 'userobj':userobj})
+            else:
+                userobj.usertype=usertype
+
         if available not in ["True","False"]:
-            return render(request, 'mainapp/edit-user.html', {'error': 'Please check availability', 'userobj':userobj})
+            return render(request, 'mainapp/edit-user.html', {'error': 'Please select availability', 'userobj':userobj})
 
         if email != userobj.user.email:
             if User.objects.filter(email=email).exists():
@@ -322,7 +327,6 @@ def team_edit(request,user_id):
         userobj.phone = phone
         userobj.user.email = email
         userobj.user.username = email
-        userobj.usertype=usertype
         userobj.available=available
         userobj.sms_missed_calls = False if request.POST.get('sms_missed_calls')==None else True
         userobj.sms_completed_calls  = False if request.POST.get('sms_completed_calls')==None else True

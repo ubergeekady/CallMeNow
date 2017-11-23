@@ -29,14 +29,14 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Name: </label>
                       <div class="col-sm-6">
-                        <input type="text" name="name" value="{{userobj.name}}" required="" class="form-control">
+                        <input type="text" name="name" value="{{userobj.name}}" data-parsley-minlength="2" required="" class="form-control">
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Phone: </label>
                       <div class="col-sm-6">
-                        <input type="text" name="phone" required = "" value="{{userobj.phone}}" data-mask="phone-int" class="form-control">
+                        <input type="text" name="phone" data-parsley-minlength="8" data-parsley-type="digits" required="" value="{{userobj.phone}}" data-mask="phone-int" class="form-control">
                       </div>
                     </div>
 
@@ -44,7 +44,7 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">E-Mail: </label>
                       <div class="col-sm-6">
-                        <input type="text" name="email" value="{{userobj.user.email}}" required="" class="form-control">
+                        <input type="text" parsley-type="email" required="" name="email" value="{{userobj.user.email}}"  class="form-control">
                       </div>
                     </div>
 
