@@ -18,26 +18,26 @@
 
                 {% if error %}
                   <div role="alert" class="alert alert-danger">
-                    <span class="icon mdi mdi-close-circle-o"></span>{{error}}
+                    {{error}}
                   </div>
                 {% endif %}
 
 
                   <form action="" style="border-radius: 0px;" method="post" class="form-horizontal group-border-dashed">
 
-                                    {% csrf_token %}
+                    {% csrf_token %}
 
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Name: </label>
                       <div class="col-sm-6">
-                        <input type="text" name="name" value="{{request.name}}" required="" class="form-control">
+                        <input type="text" name="name" required="" data-parsley-minlength="5" class="form-control" value="{{request.name}}" >
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Phone: </label>
                       <div class="col-sm-6">
-                        <input type="text" name="phone" required = "" value="{{request.phone}}" data-mask="phone-int" class="form-control">
+                        <input type="text" name="phone" required = "" data-parsley-minlength="8" data-parsley-type="digits" value="{{request.phone}}" placeholder= "Phone number with country code" class="form-control">
                       </div>
                     </div>
 

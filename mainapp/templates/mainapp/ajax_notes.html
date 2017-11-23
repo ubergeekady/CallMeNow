@@ -1,0 +1,25 @@
+                  <table class="table table-condensed table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th width="15%">Manager</th>
+                        <th width="15%">Timestamp</th>
+                          <th width="5%">Actions</th>
+                        <th>Comments</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for note in notes %}
+                      <tr>
+                        <td style="vertical-align: top;">{{note.id}}</td>
+                        <td style="vertical-align: top;">{{note.user.name}}</td>
+                        <td style="vertical-align: top;">{{note.timestamp}}</td>
+                        <td style="vertical-align: top;">
+                            <a href="#" onclick="deleteNote(event, {{note.id}}, {{lead.id}})"><div class="icon"><span class="mdi mdi-delete"></span></div></a>
+                            <a href="#" onclick="editNote(event, {{note.id}})"><div class="icon"><span class="mdi mdi-edit"></span></div></a>
+                        </td>
+                          <td style="vertical-align: top;"><span id="note{{note.id}}">{{note.text}}</span></td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>

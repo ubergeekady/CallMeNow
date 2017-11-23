@@ -15,9 +15,16 @@
                 <div class="panel-body">
 
 
+                {% if error %}
+                  <div role="alert" class="alert alert-danger">
+                    {{error}}
+                  </div>
+                {% endif %}
+
+
                   <form action="" method="post" style="border-radius: 0px;" class="form-horizontal group-border-dashed">
 
-                                    {% csrf_token %}
+                    {% csrf_token %}
 
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Widget Name: </label>
@@ -30,12 +37,12 @@
                       <label class="col-sm-3 control-label">Call Settings: </label>
                       <div class="col-sm-6">
                         <div class="be-radio be-radio-color inline">
-                          <input type="radio" {% if widgetobj.call_setting == "AgentToClient"%}checked{% endif %} name="call_setting" id="rad1" value="AgentToClient">
-                          <label for="rad1">Agent to Client</label>
+                          <input type="radio" {% if widgetobj.call_setting == "AgentFirst"%}checked{% endif %} name="call_setting" id="rad1" value="AgentFirst">
+                          <label for="rad1">Agent First</label>
                         </div>
                         <div class="be-radio be-radio-color inline">
-                          <input type="radio" {% if widgetobj.call_setting == "ClientToAgent"%}checked{% endif %} name="call_setting" id="rad2" value="ClientToAgent">
-                          <label for="rad2">Client to Agent</label>
+                          <input type="radio" {% if widgetobj.call_setting == "ClientFirst"%}checked{% endif %} name="call_setting" id="rad2" value="ClientFirst">
+                          <label for="rad2">Client First</label>
                         </div>
                       </div>
                     </div>
@@ -47,10 +54,6 @@
                         <div class="be-radio be-radio-color inline">
                           <input type="radio" {% if widgetobj.call_algorithm == "Simultaneous"%}checked{% endif %} name="call_algorithm" id="rad3" value="Simultaneous">
                           <label for="rad3">Simultaneous</label>
-                        </div>
-                        <div class="be-radio be-radio-color inline">
-                          <input type="radio" {% if widgetobj.call_algorithm == "Sequential"%}checked{% endif %} name="call_algorithm" id="rad4" value="Sequential">
-                          <label for="rad4">Sequential</label>
                         </div>
                         <div class="be-radio be-radio-color inline">
                           <input type="radio" {% if widgetobj.call_algorithm == "Randomized"%}checked{% endif %} name="call_algorithm" id="rad5" value="Randomized">

@@ -23,45 +23,41 @@
                       <tr>
                         <th>Id</th>
                         <th>Status</th>
-                        <th>Lead Information</th>
+                        <th>Contact Information</th>
                         <th>Widget</th>
                         <th>Date/Time</th>
-                        <th>Representative</th>                        
+                        <th>Manager</th>
                         <th>Call Details</th>
                         <th class="actions"></th>                        
                       </tr>
                     </thead>
                     <tbody>
+
+                    {% for lead in leads %}
                       <tr>
-                        <td>22345</td>
-                        <td><span class="label label-danger">Uncontacted</span></td>
-                        <td>Name : Shanu Athiparambath<br />Phone : +91.99928828<br />Email: shanu@shanu.com</td>
-                        <td>Sales Widget #1</td>
-                        <td>23rd May, 2010 12:30 PM</td>
+                        <td>{{lead.id}}</td>
+                        <td>
+                          {% if lead.lead_status == "Uncontacted" %}<span class="label label-danger">Uncontacted</span>{% endif %}
+                          {% if lead.lead_status == "Contacted" %}<span class="label label-success">Contacted</span>{% endif %}
+                        </td>
+                        <td>{% if lead.name != "" %}Name : {{lead.name}}<br />{% endif %}
+                            Phone : {{lead.phone}}<br />
+                            {% if lead.email != "" %}Email: {{lead.email}}<br />{% endif %}
+                            {% if lead.country != "" %}Country: {{lead.country}}{% endif %}
+                        </td>
+                        <td>{{lead.widget.name}}</td>
+                        <td>{{lead.datetime}}</td>
+                        <td>
+                          {% if lead.owner != null %}
+                           {{ lead.owner.name }}
+                          {% endif %}
+
+                        </td>
                         <td></td>
-                        <td></td>
-                        <td class="actions"><a href="#" class="icon"><i class="mdi mdi-settings"></i></a></td>
+                        <td class="actions"><a href="{% url 'mainapp:lead_detail' lead.id%}" class="icon"><i class="mdi mdi-settings"></i></a></td>
                       </tr>
-                      <tr>
-                        <td>22345</td>
-                        <td><span class="label label-success">Call Completed</span></td>
-                        <td>Name : Shanu Athiparambath<br />Phone : +91.99928828<br />Email: shanu@shanu.com</td>
-                        <td valign="top">Sales Widget #1</td>
-                        <td>23rd May, 2010 12:30 PM</td>
-                        <td>Rick Morty</td>
-                        <td>Call Duration : 20 seconds<br />Play</td>
-                        <td class="actions"><a href="#" class="icon"><i class="mdi mdi-settings"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>22345</td>
-                        <td><span class="label label-warning">Missed call</span></td>
-                        <td>Name : Shanu Athiparambath<br />Phone : +91.99928828<br />Email: shanu@shanu.com</td>
-                        <td>Sales Widget #1</td>
-                        <td>23rd May, 2010 12:30 PM</td>
-                        <td></td>
-                        <td></td>
-                        <td class="actions"><a href="#" class="icon"><i class="mdi mdi-settings"></i></a></td>
-                      </tr>
+                      {% endfor %}
+
                     </tbody>
                   </table>
                 </div>

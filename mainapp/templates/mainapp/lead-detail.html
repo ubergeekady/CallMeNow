@@ -12,7 +12,7 @@
           <div class="row">
             <div class="col-xs-12 col-md-12">
               <div class="panel panel-default">
-                <div class="panel-heading"><span class="title">Lead Details : #223345</span></div>
+                <div class="panel-heading"><span class="title">Lead Details : #{{lead.id}}</span></div>
                 <div class="panel-body">
 
                   <table class="table table-condensed table-hover table-bordered">
@@ -23,78 +23,230 @@
                         <th>Lead Information</th>
                         <th>Widget</th>
                         <th>Date/Time</th>
-                        <th>Representative</th>                        
-                        <th>Call Details</th>
+                        <th>Manager</th>
                         <th>Call Now</th>                        
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>22345</td>
-                        <td><span class="label label-danger">Uncontacted</span></td>
-                        <td>Name : Shanu Athiparambath<br />Phone : +91.99928828<br />Email: shanu@shanu.com<br />IP : 22.22.22.22<br />Location: New Delhi</td>
-                        <td>Sales Widget #1</td>
-                        <td>23rd May, 2010 12:30 PM</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{lead.id}}</td>
+                        <td>
+                          {% if lead.lead_status == "Uncontacted" %}<span class="label label-danger">Uncontacted</span>{% endif %}
+                          {% if lead.lead_status == "Contacted" %}<span class="label label-success">Contacted</span>{% endif %}
+                        </td>
+
+                        <td>{% if lead.name != "" %}Name : {{lead.name}}<br />{% endif %}
+                            Phone : {{lead.phone}}<br />
+                            {% if lead.email != "" %}Email: {{lead.email}}<br />{% endif %}
+                            {% if lead.ipaddress != "" %}IP Address: {{lead.ipaddress}}<br />{% endif %}
+                            {% if lead.country != "" %}Country: {{lead.country}}{% endif %}
+                        </td>
+                        <td>{{lead.widget.name}}</td>
+                        <td>{{lead.datetime}}</td>
+                        <td>
+                          {% if lead.owner != null %}
+                           {{ lead.owner.name }}
+                          {% endif %}
+                        </td>
                         <td class="actions">
                           <div class="icon-container" style="background-color: unset;">
-                            <div class="icon"><a href="#"><span class="mdi mdi-phone"></span></a></div>
+                            <div class="icon"><a href="#"><span class="mdi mdi-phone" onclick="call_from_admin(event, {{lead.id}});" ></span></a></div>
                           </div>
                         </td>
                       </tr>
                     </tbody>
                   </table>                
-                  
 
-                  <h4>Call History</h4><br />
+  {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/toastr.min.css' %}"/>
+    <script type="text/javascript">
+
+      function call_from_admin(event, leadid){
+        event.preventDefault();
+        url = "/leads/call_from_admin/"+leadid+"/";
+        $.get( url, function( data ) {
+          data = JSON.parse(data)
+          if(data.success){
+              toastr.success("Connecting ...");
+          } else {
+              toastr.error("Error");
+          }
+        });
+      }
+    </script>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading"><span class="title">Call History</span></div>
+                <div class="panel-body">
+
 
                   <table class="table table-condensed table-hover table-bordered">
                     <thead>
                       <tr>
                         <th>Id</th>
+                        <th>Status</th>
+                        <th>Comments</th>
                         <th>Date and Time</th>
                         <th>Duration</th>
-                        <th>Agent</th>
+                        <th>Manager</th>
+                        <th>Play Recording</th>
                       </tr>
                     </thead>
                     <tbody>
+                    {% for call in calls %}
                       <tr>
-                        <td>22345</td>
-                        <td>23rd May, 2010 12:30 PM</td>
-                        <td>234 seconds</td>
-                        <td>Rick Morty</td>
+                        <td>{{call.id}}</td>
+                        <td>
+                          {% if call.callmenow_status == "call-inprogress" %}<span class="label label-success">In Progress</span>{% endif %}
+                          {% if call.callmenow_status == "call-completed" %}<span class="label label-success">Completed</span>{% endif %}
+                          {% if call.callmenow_status == "call-failed" %}<span class="label label-danger">Failed</span>{% endif %}
+                          {% if call.callmenow_status == "call-connecting" %}<span class="label label-warning">Connecting</span>{% endif %}
+                        </td>
+                        <td>{{call.callmenow_comments}}</td>
+                        <td>{{call.datetime}}</td>
+                        <td>{{call.plivo_aleg_duration}} seconds</td>
+                        <td>{{call.agent_name}}</td>
+                        <td>
+                          {% if call.record_url != "" %}
+                          <audio controls>
+                            <source src="{{call.record_url}}" type="audio/mpeg"/>
+                          </audio>
+                          {% endif %}
+                        </td>
                       </tr>
+                    {% endfor %}
                     </tbody>
-                  </table>                
+                  </table>
 
-                  <h4>Notes</h4><br />
-
-
-                    <div class="form-group">
-                      <div class="col-sm-12">
-                        <textarea class="form-control" rows="6"></textarea>
-                      </div>
-                    </div>
-
-                    <br /><br />
-
-                     <div class="col-xs-6">
-                        <p class="text-right">
-                          <button type="submit" class="btn btn-space btn-primary btn-xl">Save</button>
-                        </p>
-                      </div>                                
-
-                  </form>
-
-
-
-
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
- 
+
+
+
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading"><span class="title">Notes</span>
+                    <div class="tools"><button data-toggle="modal" data-target="#form-bp1" type="button" class="btn btn-space btn-primary">Add New Note</button></div>
+
+                </div>
+                <div class="panel-body">
+
+                <span id="notesajax">
+                  <table class="table table-condensed table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th width="15%">Manager</th>
+                        <th width="15%">Timestamp</th>
+                          <th width="5%">Actions</th>
+                        <th>Comments</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for note in notes %}
+                      <tr>
+                        <td style="vertical-align: top;">{{note.id}}</td>
+                        <td style="vertical-align: top;">{{note.user.name}}</td>
+                        <td style="vertical-align: top;">{{note.timestamp}}</td>
+                        <td style="vertical-align: top;">
+                            <a href="#" onclick="deleteNote(event, {{note.id}}, {{lead.id}})"><div class="icon"><span class="mdi mdi-delete"></span></div></a>
+                            <a href="#" onclick="editNote(event, {{note.id}})"><div class="icon"><span class="mdi mdi-edit"></span></div></a>
+                        </td>
+                          <td style="vertical-align: top;"><span id="note{{note.id}}">{{note.text}}</span></td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+        </div>
+      </div>
+
+
+
+    <div id="form-bp1" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+      <div class="modal-dialog custom-width">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close md-close"><span class="mdi mdi-close"></span></button>
+            <h3 class="modal-title">Add New Note</h3>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Notes</label>
+                <input type="hidden" id="noteid" value=0>
+              <textarea class="form-control" rows="6" id="note"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default md-close">Cancel</button>
+            <button type="button" data-dismiss="modal" class="btn btn-primary" onclick="note_ajax(event, {{lead.id}});">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      function note_ajax(event, leadid){
+        event.preventDefault();
+        notetext = document.getElementById("note").value;
+        noteid = document.getElementById("noteid").value;
+        url = "/leads/detail/add_new_note/"+leadid+"/";
+        $.post( url, { "noteid": noteid, "notetext": notetext } ).done( function(data){
+            if(data=="error"){
+              toastr.error("Error");
+            } else {
+              document.getElementById("notesajax").innerHTML = data;
+              toastr.success("Done");
+              document.getElementById("note").value = "";
+              document.getElementById("noteid").value = 0;
+            }
+        });
+      }
+
+      function editNote(event, note_id){
+        event.preventDefault();
+        document.getElementById("note").value = document.getElementById("note"+note_id).innerHTML
+        document.getElementById("noteid").value = note_id
+        $('#form-bp1').modal('show');
+      }
+
+      function deleteNote(event, noteid, leadid){
+        event.preventDefault();
+        url = "/leads/detail/add_new_note/"+leadid+"/";
+        $.post( url, { "noteid": noteid, "action": "delete" } ).done( function(data){
+            if(data=="error"){
+              toastr.error("Error");
+            } else {
+              document.getElementById("notesajax").innerHTML = data;
+              toastr.success("Done");
+            }
+        });
+
+      }
+
+    </script>
+
+
 {% endblock %}

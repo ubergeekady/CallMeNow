@@ -10,6 +10,7 @@
       <div class="be-content">
         <div class="main-content container-fluid">
           
+  {% load staticfiles %}
 
 
             <div class="row">
@@ -17,7 +18,7 @@
             <div class="col-sm-12">
               <div class="panel panel-default">
                 <div class="panel-heading">Team 
-                  <div class="tools"><a href="{% url 'mainapp:team_create_new'%}"><button class="btn btn-space btn-default"><i class="icon icon-left mdi mdi-globe"></i>Create New</button></a>a></div>
+                  <div class="tools"><a href="{% url 'mainapp:team_create_new'%}"><button class="btn btn-space btn-default"><i class="icon icon-left mdi mdi-globe"></i>Create New</button></a></div>
                 </div>
                 <div class="panel-body">
                   <table class="table table-condensed table-hover table-bordered">
@@ -27,6 +28,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Current Availability</th>
+                        <th>Phone verified</th>
                         <th>Phone</th>                        
                         <th>Widgets</th>
                         <th>Role</th>
@@ -53,8 +55,15 @@
                               <label for="swt{{t.id}}"></label></span>
                           </div>
                         </td>
+                        <td>
+                            {% if t.verified %}
+                                <img width=20 height=20 src="{% static 'assets/online.png' %}"/>
+                            {% else %}
+                                <img width=20 height=20 src="{% static 'assets/offline.png' %}"/>
+                            {% endif %}
+                        </td>
                         <td>{{t.phone}}</td>
-                        <td></td>
+                        <td>{{t.widgets}}</td>
                         <td>
                           {% if t.usertype == "Owner" %}<span class="label label-success">Owner</span>{% endif %}
                           {% if t.usertype == "Agent" %}<span class="label label-danger">Agent</span>{% endif %}
@@ -70,16 +79,14 @@
               </div>
             </div>
 
-{% load staticfiles %}
-
-
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/toastr.min.css' %}"/>
+
 
     <script type="text/javascript">
 
       function toggleavailability(userid){
         val = document.getElementById("swt"+userid).checked;
-        url = "/app/team/toggleavailability/"+userid+"/"+val;
+        url = "/team/toggleavailability/"+userid+"/"+val+"/";
         $.get( url, function( data ) {
           data = JSON.parse(data)
           if(data.success){
@@ -88,6 +95,9 @@
         });
       }
     </script>
+
+
+
 
           </div>
         </div>

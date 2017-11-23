@@ -30,13 +30,10 @@ ALLOWED_HOSTS = ["*"]
 LOGIN_REDIRECT_URL = '/app/'
 LOGIN_URL='/app/'
 
-USE_TZ = True
-
 
 # Application definition
 
 INSTALLED_APPS = [
-    'website.apps.WebsiteConfig',
     'mainapp.apps.MainappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
 ]
 
 ROOT_URLCONF = 'callmenow.urls'
@@ -125,3 +123,33 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+#Number of seconds after which the user will be logged out.
+SESSION_COOKIE_AGE = 604800
+
+HOME_URL = "http://8a3c0b62.ngrok.io"
+PLIVO_AUTH_ID = 'MAZJJLMZJLMMQ5MWFHMZ'
+PLIVO_AUTH_TOKEN = 'ZTBkZjhhY2M0ZWNkOWFmOTZiZGEzMjM3MDJjZjUx'
+POSTMARK_TOKEN = 'a2097480-d252-4c1f-b15a-1bac69c54699'
+TRANSACTIONAL_FROM_EMAIL= 'CallMeNowHQ <no-reply@callmenowhq.com>'
+
+#These settings are used for automatic error emails which are sent through SMTP servers provided below
+ADMINS = [('Aditya', 'aditya@impulsemedia.co.in')]
+MANAGERS = [('Aditya', 'aditya@impulsemedia.co.in')]
+SERVER_EMAIL = 'webmaster@callmenowhq.com'
+
+#SMTP Configuration to be used by DJango for sending server error messages
+#PostMark
+EMAIL_HOST = 'smtp.postmarkapp.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'a2097480-d252-4c1f-b15a-1bac69c54699'
+EMAIL_HOST_PASSWORD = 'a2097480-d252-4c1f-b15a-1bac69c54699'
+EMAIL_USE_TLS = True
+
+#ElasticEmail
+#EMAIL_HOST = 'smtp.elasticemail.com'
+#EMAIL_PORT = 587
+#EMAIL_HOST_USER = 'aditya@impulsemedia.co.in'
+#EMAIL_HOST_PASSWORD = '107b1821-551e-46c9-baa0-f21202694f9a'
+#EMAIL_USE_TLS = True

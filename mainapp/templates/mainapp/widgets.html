@@ -24,8 +24,7 @@
                       <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Status(Live/Paused)</th>
-                        <th class="actions"></th>                        
+                        <th class="actions"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -34,16 +33,10 @@
                       <tr>
                         <td>{{w.id}}</td>
                         <td>{{w.name}}</td>
-                        <td>
-                          <div class="switch-button switch-button-success">
-                            <input type="checkbox" checked="" name="swt5" id="swt5"><span>
-                              <label for="swt5"></label></span>
-                          </div>
-                        </td>
                         <td class="actions">
                           <a href="{% url 'mainapp:widget_edit' w.id %}" class="icon"><i class="mdi mdi-settings"></i></a> &nbsp; &nbsp;
-                          <a href="#" class="icon"><i class="mdi mdi-code"></i></a> &nbsp; &nbsp;
-                          <a href="#" class="icon"><i class="mdi mdi-view-list"></i></a>                          
+                          <a href="#" onclick="showCode(event, {{w.id}});" class="icon"><i class="mdi mdi-code"></i></a> &nbsp; &nbsp;
+                          <a href="#" onclick="editWidgetAgents(event, {{w.id}}, '{{w.name}}')" class="icon"><i class="mdi mdi-view-list"></i></a>
                         </td>                        
                       </tr>
                     {% endfor %}
@@ -53,6 +46,116 @@
               </div>
             </div>
 
+
+
+    <div id="form-bp2" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+      <div class="modal-dialog custom-width">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close md-close"><span class="mdi mdi-close"></span></button>
+            <h3 class="modal-title">Assign Agents To Widget <span id="widgetagentname"></span></h3>
+          </div>
+          <div class="modal-body">
+
+          <span id="widgethtml">
+          </span>
+          <input type="hidden" id="widgetagentid" value="">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default md-close">Cancel</button>
+            <button type="button" data-dismiss="modal" class="btn btn-primary" onclick="WidgetAgentSave(event);">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/toastr.min.css' %}"/>
+
+
+    <script type="text/javascript">
+      function editWidgetAgents(event, widget_id, widget_name){
+        event.preventDefault();
+        url = "/ajax/widgets/agents/"+widget_id+"/";
+        $.get( url, function( wagents ) {
+            wagents = JSON.parse(wagents)
+            mstr=""
+            for (var i = 0, len = wagents.length; i < len; i++)
+            {
+              m = wagents[i]
+              if(m.added==true){
+                checked = "checked";
+              } else {
+                checked = "";
+              }
+              str = "<div class='be-checkbox'><input id='check"+m.id+"' type='checkbox' "+checked+" name='widgetagents' value='"+m.id+"'><label for='check"+m.id+"'>"+m.name+" ("+m.usertype+")</label></div>"
+              mstr = mstr+str
+            }
+            document.getElementById("widgetagentname").innerHTML = widget_name
+            document.getElementById("widgetagentid").value = widget_id
+            document.getElementById("widgethtml").innerHTML = mstr
+        });
+        $('#form-bp2').modal('show');
+      }
+
+      function WidgetAgentSave(event){
+        event.preventDefault();
+        widget_id = document.getElementById("widgetagentid").value
+        url = "/ajax/widgets/agents/"+widget_id+"/";
+        myarray = []
+        $("input:checkbox[name=widgetagents]:checked").each(function(){
+            myarray.push($(this).val());
+        });
+        myjson = { "myarray" : myarray}
+        $.post( url, JSON.stringify(myjson) ).done( function(data){
+            data = JSON.parse(data);
+            if(data.success==true){
+              toastr.success("Saved");
+              document.getElementById("widgetagentname").innerHTML = ""
+              document.getElementById("widgetagentid").value = 0
+              document.getElementById("widgethtml").innerHTML = ""
+            } else {
+              toastr.success("Error");
+            }
+        });
+      }
+    </script>
+
+
+
+
+
+
+
+
+    <div id="form-bp1" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+      <div class="modal-dialog custom-width">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close md-close"><span class="mdi mdi-close"></span></button>
+            <h3 class="modal-title">Installation Code For Widget #<span id="widgetid"></span></h3>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <p class="text-success">Copy and paste the following javascript code to the footer section of your website.</p>
+              <textarea readonly="readonly" class="form-control" rows="6" id="code"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default md-close">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      function showCode(event, widget_id){
+        event.preventDefault();
+        document.getElementById("widgetid").innerHTML=widget_id
+        $('#form-bp1').modal('show');
+      }
+    </script>
 
 
           </div>
