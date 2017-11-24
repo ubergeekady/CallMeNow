@@ -984,7 +984,7 @@ def plivo_clientfirst_answer_url(request,uuid):
 
         if widgetobj.call_algorithm == "Randomized":
             agent = random.choice(list_of_available_agents)
-            print("Random agent : "+agent)
+            print("Random agent : "+str(agent))
             dial = plivoxml.DialElement(action=homeurl+'/plivo/plivo_clientfirst_dial_url/'+uuid+'/',
                                         method="POST",
                                         callback_url=homeurl+'/plivo/plivo_clientfirst_callback_url/'+uuid+'/',
