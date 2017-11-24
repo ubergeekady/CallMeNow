@@ -816,7 +816,7 @@ def ProcessNextCall(widget_id):
                 except:
                     print("exception1")
                     callobject.callmenow_status="call-failed"
-                    callobject.callmenow_comments="Exception: Failed to call visitor"
+                    callobject.callmenow_comments="Exception: Failed To Call Visitor"
                     callobject.save()
                     queueobject.delete()
                     widgetobj.locked = False
@@ -879,7 +879,7 @@ def ProcessNextCall(widget_id):
                 except:
                     print("exception1")
                     callobject.callmenow_status="call-failed"
-                    callobject.callmenow_comments="Exception: Failed to call agent"
+                    callobject.callmenow_comments="Exception: Failed To Call Manager"
                     callobject.save()
                     queueobject.delete()
                     widgetobj.locked = False
@@ -908,7 +908,7 @@ def plivo_clientfirst_answer_url(request,uuid):
     if request.POST['CallStatus']=="busy":
         callobject.callmenow_status="call-failed"
         callobject.plivo_aleg_hangup_cause= request.POST['HangupCause']
-        callobject.callmenow_comments = "Visitor's phone busy"
+        callobject.callmenow_comments = "Visitor's Phone Busy"
         callobject.widget.locked=False
         callobject.save()
         callobject.widget.save()
@@ -917,7 +917,7 @@ def plivo_clientfirst_answer_url(request,uuid):
     if request.POST['CallStatus']=="failed":
         callobject.callmenow_status="call-failed"
         callobject.plivo_aleg_hangup_cause = request.POST['HangupCause']
-        callobject.callmenow_comments = "Failed to call visitor"
+        callobject.callmenow_comments = "Failed To Call Visitor"
         callobject.widget.locked=False
         callobject.save()
         callobject.widget.save()
@@ -926,7 +926,7 @@ def plivo_clientfirst_answer_url(request,uuid):
     if request.POST['CallStatus']=="no-answer":
         callobject.callmenow_status="call-failed"
         callobject.plivo_aleg_hangup_cause = request.POST['HangupCause']
-        callobject.callmenow_comments = "Visitor did not answer the phone"
+        callobject.callmenow_comments = "Visitor Did Not Answer The Call"
         callobject.widget.locked=False
         callobject.save()
         callobject.widget.save()
@@ -935,7 +935,7 @@ def plivo_clientfirst_answer_url(request,uuid):
     if request.POST['CallStatus']=="cancel":
         callobject.callmenow_status="call-failed"
         callobject.plivo_aleg_hangup_cause = request.POST['HangupCause']
-        callobject.callmenow_comments = "Visitor cancelled the call"
+        callobject.callmenow_comments = "Visitor Cancelled The Call"
         callobject.widget.locked=False
         callobject.save()
         callobject.widget.save()
@@ -1011,7 +1011,7 @@ def plivo_clientfirst_answer_url(request,uuid):
             k.currently_busy=False
             k.save()
         except:
-            print("exception-call-hangup- agentbusy")
+            print("exception setting up agent.currently_busy")
         callobject.widget.save()
         callobject.save()
         return HttpResponse("")
@@ -1025,7 +1025,7 @@ def plivo_clientfirst_dial_url(request, uuid):
     callobject.plivo_bleg_call_status = request.POST['DialStatus']
     if request.POST['DialStatus']=="failed":
         callobject.callmenow_status="call-failed"
-        callobject.callmenow_comments = "Could not connect to agent"
+        callobject.callmenow_comments = "Unable To Connect With Managers"
         callobject.widget.locked=False
         callobject.save()
         callobject.widget.save()
@@ -1033,7 +1033,7 @@ def plivo_clientfirst_dial_url(request, uuid):
         return HttpResponse("")
     if request.POST['DialStatus']=="no-answer":
         callobject.callmenow_status="call-failed"
-        callobject.callmenow_comments = "No agent answered the call"
+        callobject.callmenow_comments = "No Manager Answered The Call"
         callobject.widget.locked=False
         callobject.save()
         callobject.widget.save()
@@ -1041,7 +1041,7 @@ def plivo_clientfirst_dial_url(request, uuid):
         return HttpResponse("")
     if request.POST['DialStatus']=="busy":
         callobject.callmenow_status="call-failed"
-        callobject.callmenow_comments = "Agents were busy"
+        callobject.callmenow_comments = "Managers Were Busy"
         callobject.widget.locked=False
         callobject.save()
         callobject.widget.save()
@@ -1059,7 +1059,7 @@ def plivo_clientfirst_dial_url(request, uuid):
             k.currently_busy=False
             k.save()
         except:
-            print("exception-call-hangup- agentbusy")
+            print("exception setting up agent.currently_busy")
         callobject.widget.locked=False
         callobject.widget.save()
         callobject.save()
@@ -1081,20 +1081,16 @@ def plivo_clientfirst_callback_url(request, uuid):
         callobject.plivo_bleg_bill = request.POST['DialBLegTotalCost']
         if request.POST['DialBLegHangupCause'] == "ORIGINATOR_CANCEL":
             callobject.callmenow_status = "call-failed"
-            callobject.callmenow_comments = "Visitor cancelled the call"
+            callobject.callmenow_comments = "Visitor Cancelled The Call"
             callobject.widget.locked=False
             callobject.widget.save()
         callobject.save()
         return HttpResponse("")
     if request.POST['DialAction']=="answer":
         callobject.callmenow_status = "call-inprogress"
-        callobject.callmenow_comments = "Currently on phone"
+        callobject.callmenow_comments = "In Conversation"
         callobject.widget.locked=False
         agentphone = request.POST['DialBLegTo']
-
-        #What if the same number is in other account. This should not be possible in the application.
-        #But this can be an error point.
-
         callobject.bleg_phone_number = agentphone
         k= UserProfile.objects.filter(phone=agentphone)[0]
         k.currently_busy=True
@@ -1187,7 +1183,7 @@ def plivo_agentfirst_answer_url(request, uuid):
                 k.currently_busy=False
                 k.save()
             except:
-                print("agent locking exception")
+                print("exception setting up agent.currently_busy")
             callobject.save()
             ProcessNextCall(callobject.widget.id)
             return HttpResponse("")
@@ -1200,7 +1196,7 @@ def plivo_agentfirst_answer_url(request, uuid):
             if len(uuids) == 0:
                 callobject.agentfirst_aleg_uuids=""
                 callobject.callmenow_status="call-failed"
-                callobject.callmenow_comments="Could not connect with agents"
+                callobject.callmenow_comments="Could Not Connect With Managers"
                 callobject.widget.locked = False
                 callobject.widget.save()
                 try:
@@ -1208,7 +1204,7 @@ def plivo_agentfirst_answer_url(request, uuid):
                     k.currently_busy = False
                     k.save()
                 except:
-                    print("agent locking exception")
+                    print("exception setting up agent.currently_busy")
                 callobject.save()
                 ProcessNextCall(callobject.widget.id)
             return HttpResponse("")
@@ -1222,7 +1218,7 @@ def plivo_agentfirst_dial_url(request, uuid):
     callobject.plivo_bleg_call_status = request.POST['DialStatus']
     if request.POST['DialStatus']=="failed":
         callobject.callmenow_status="call-failed"
-        callobject.callmenow_comments = "Could not connect to customer"
+        callobject.callmenow_comments = "Could Not Connect With Visitors"
         callobject.widget.locked=False
         callobject.save()
         callobject.widget.save()
@@ -1230,7 +1226,7 @@ def plivo_agentfirst_dial_url(request, uuid):
         return HttpResponse("")
     if request.POST['DialStatus']=="no-answer":
         callobject.callmenow_status="call-failed"
-        callobject.callmenow_comments = "Customer did not answer the call"
+        callobject.callmenow_comments = "Visitor Did Not Answer The Call"
         callobject.widget.locked=False
         callobject.save()
         callobject.widget.save()
@@ -1238,7 +1234,7 @@ def plivo_agentfirst_dial_url(request, uuid):
         return HttpResponse("")
     if request.POST['DialStatus']=="busy":
         callobject.callmenow_status="call-failed"
-        callobject.callmenow_comments = "Customer's phone busy"
+        callobject.callmenow_comments = "Visitor's Phone Busy"
         callobject.widget.locked=False
         callobject.save()
         callobject.widget.save()
@@ -1256,7 +1252,7 @@ def plivo_agentfirst_dial_url(request, uuid):
             k.currently_busy=False
             k.save()
         except:
-            print("exception-call-hangup- agentbusy")
+            print("exception setting up agent.currently_busy")
         callobject.widget.locked=False
         callobject.widget.save()
         callobject.save()
@@ -1280,14 +1276,14 @@ def plivo_agentfirst_callback_url(request, uuid):
         callobject.plivo_bleg_bill = request.POST['DialBLegTotalCost']
         if request.POST['DialBLegHangupCause'] == "ORIGINATOR_CANCEL":
             callobject.callmenow_status = "call-failed"
-            callobject.callmenow_comments = "Agent cancelled the call"
+            callobject.callmenow_comments = "Manager Cancelled The Call"
             callobject.widget.locked=False
             callobject.widget.save()
         callobject.save()
         return HttpResponse("")
     if request.POST['DialAction']=="answer":
         callobject.callmenow_status = "call-inprogress"
-        callobject.callmenow_comments = "Currently on call"
+        callobject.callmenow_comments = "In Conversation"
         callobject.widget.locked=False
         callobject.agent.currently_busy=True
         callobject.save()
