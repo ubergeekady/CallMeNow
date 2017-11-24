@@ -804,24 +804,24 @@ def ProcessNextCall(widget_id):
                                    callmenow_status="call-connecting")
                 callobject.save()
                 client = plivo.RestClient(auth_id=django_settings.PLIVO_AUTH_ID, auth_token=django_settings.PLIVO_AUTH_TOKEN)
-                try:
-                    answer_url=homeurl+'/plivo/plivo_clientfirst_answer_url/'+queueobject.callmenow_uuid+"/"
-                    print(answer_url)
-                    response = client.calls.create(
-                        from_=widgetobj.account.owner.userprofile.phone,
-                        ring_timeout=20,
-                        to_=leadobject.phone,
-                        answer_url=answer_url,
-                        answer_method='POST', )
-                except:
-                    print("exception1")
-                    callobject.callmenow_status="call-failed"
-                    callobject.callmenow_comments="Exception: Failed to call visitor"
-                    callobject.save()
-                    queueobject.delete()
-                    widgetobj.locked = False
-                    widgetobj.save()
-                    return
+         #       try:
+                answer_url=homeurl+'/plivo/plivo_clientfirst_answer_url/'+queueobject.callmenow_uuid+"/"
+                print(answer_url)
+                response = client.calls.create(
+                    from_=widgetobj.account.owner.userprofile.phone,
+                    ring_timeout=20,
+                    to_=leadobject.phone,
+                    answer_url=answer_url,
+                    answer_method='POST', )
+#                except:
+ #                   print("exception1")
+  #                  callobject.callmenow_status="call-failed"
+   #                 callobject.callmenow_comments="Exception: Failed to call visitor"
+    #                callobject.save()
+     #               queueobject.delete()
+      #              widgetobj.locked = False
+       #             widgetobj.save()
+        #            return
                 print(str(response))
                 callobject.callmenow_status = "call-connecting"
                 callobject.plivo_aleg_call_status = response['message']

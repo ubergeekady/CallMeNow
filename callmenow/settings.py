@@ -26,7 +26,7 @@ SECRET_KEY = 'a^*b=38e%x24wycmeb*wyw&do1q=qn1d&_rrgeo!54a$ii)6ur'
 DEBUG = True
 ALLOWED_HOSTS = ["*"]
 SECURE_REDIRECT_EXEMPT = [r"^widgetapi/",r"^plivo/"]
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL='/'
 STATIC_ROOT = '/home/callmenow/callmenow_static'
