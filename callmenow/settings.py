@@ -30,7 +30,8 @@ SECURE_SSL_REDIRECT = False
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL='/'
 STATIC_ROOT = '/home/callmenow/callmenow_static'
-HOME_URL = "8a3c0b62.ngrok.io"
+#HOME_URL = "8a3c0b62.ngrok.io"
+HOME_URL = "staging.callmenowhq.com"
 
 # Application definition
 

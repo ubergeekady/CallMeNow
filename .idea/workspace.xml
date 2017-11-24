@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26696876-f498-426d-aff9-9827e349ca0b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/callmenow/settings.py" afterPath="$PROJECT_DIR$/callmenow/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/templates/404.html" afterPath="$PROJECT_DIR$/mainapp/templates/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/templates/500.html" afterPath="$PROJECT_DIR$/mainapp/templates/500.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/views.py" afterPath="$PROJECT_DIR$/mainapp/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="817" column="19" lean-forward="false" selection-start-line="817" selection-start-column="19" selection-end-line="817" selection-end-column="19" />
+            <state relative-caret-position="213">
+              <caret line="810" column="22" lean-forward="false" selection-start-line="810" selection-start-column="22" selection-end-line="810" selection-end-column="22" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -90,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/callmenow/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="229">
+              <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -203,8 +202,8 @@
         <option value="$PROJECT_DIR$/mainapp/urls.py" />
         <option value="$PROJECT_DIR$/mainapp/templates/404.html" />
         <option value="$PROJECT_DIR$/mainapp/templates/500.html" />
-        <option value="$PROJECT_DIR$/callmenow/settings.py" />
         <option value="$PROJECT_DIR$/mainapp/views.py" />
+        <option value="$PROJECT_DIR$/callmenow/settings.py" />
       </list>
     </option>
   </component>
@@ -842,21 +841,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/callmenow/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mainapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="817" column="19" lean-forward="false" selection-start-line="817" selection-start-column="19" selection-end-line="817" selection-end-column="19" />
+        <state relative-caret-position="213">
+          <caret line="810" column="22" lean-forward="false" selection-start-line="810" selection-start-column="22" selection-end-line="810" selection-end-column="22" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/callmenow/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
