@@ -37,8 +37,6 @@ HOME_URL = "app.callmenowhq.com"
 
 # Application definition
 
-CORS_ORIGIN_ALLOW_ALL = True
-
 INSTALLED_APPS = [
     'corsheaders',
     'mainapp.apps.MainappConfig',
@@ -51,9 +49,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -64,6 +62,8 @@ MIDDLEWARE = [
     'mainapp.middleware.TimezoneMiddleware',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'callmenow.urls'
 
