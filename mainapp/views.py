@@ -973,8 +973,8 @@ def available(request, widget_id):
     message['showalert'] = widgetobj.appearance_showalert
     message['showalert_after'] = widgetobj.appearance_showalert_after
     message['playsoundonalert'] = widgetobj.appearance_playsoundonalert
-    message['html'] = homeurl+"/static/widget/widget.html"
-    message['img'] = homeurl+"/static/widget/"+widgetobj.appearance_buttonimage
+    message['html'] = "/static/widget/widget.html"
+    message['img'] = "/static/widget/"+widgetobj.appearance_buttonimage
     #message['date'] =  ['Today', 'Tomorrow', 'Friday']
     message['time'] = ["8 - 9 AM","9 - 10 AM","10 - 11 AM","11 - 12 AM","12 - 1 PM","1 - 2 PM","2 PM - 3 PM","3 PM - 4 PM","4 PM - 5 PM","5 PM - 6 PM","6 PM - 7 PM","7 PM - 8 PM","8 PM - 9 PM"]
     message['alert'] = {
