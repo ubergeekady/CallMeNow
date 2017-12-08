@@ -18,7 +18,7 @@ var cm = {
   xhr: function(method, url, data, response, onready) {
     var xhr = new XMLHttpRequest();
     xhr.open(method, url, true);
-    xhr.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
+    xhr.setRequestHeader('Content-type', 'text/plain;charset=UTF-8');
     xhr.responseType = response;
     xhr.send(data);
     xhr.onreadystatechange = function() {
