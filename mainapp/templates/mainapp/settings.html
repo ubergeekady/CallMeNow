@@ -5,8 +5,6 @@
 {% block body %}
 
 
-
-
       <div class="be-content">
         <div class="main-content container-fluid">
           <div class="row">
@@ -21,12 +19,17 @@
                   </div>
                 {% endif %}
 
+                {% if error %}
+                  <div role="alert" class="alert alert-danger">
+                    {{error}}
+                  </div>
+                {% endif %}
 
                   <form action="" method="post" style="border-radius: 0px;" class="form-horizontal group-border-dashed">
                     {% csrf_token %}
 
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Timezone</label>
+                        <label class="col-sm-3 control-label">Timezone</label>
                       <div class="col-sm-6">
                         <select class="form-control" name="timezone">
                           {% for t in timezones%}
@@ -42,7 +45,15 @@
 
 
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Blacklisted Numbers</label>
+                      <label class="col-sm-3 control-label">Caller Id: </label>
+                      <div class="col-sm-6">
+                        <input type="text" name="callerId" value="{{ account.callerId }}" class="form-control">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Blacklisted Phone Numbers (one per line)</label>
                       <div class="col-sm-6">
                         <textarea class="form-control" rows="6" name="numberblacklist">{{account.numberblacklist}}</textarea>
                       </div>
@@ -50,17 +61,22 @@
 
 
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Backlisted IP Addresses</label>
+                      <label class="col-sm-3 control-label">Backlisted IP Addresses (one per line)</label>
                       <div class="col-sm-6">
                         <textarea class="form-control" rows="6" name="ipblacklist">{{account.ipblacklist}}</textarea>
                       </div>
-                    </div>        
+                    </div>
+
+
+
 
                      <div class="col-xs-6">
                         <p class="text-right">
-                          <button type="submit" class="btn btn-space btn-primary btn-xl">Update</button>
+                          <button type="submit" class="btn btn-space btn-primary btn-xl">Save</button>
                         </p>
-                      </div>                                
+                      </div>
+
+
 
                   </form>
 

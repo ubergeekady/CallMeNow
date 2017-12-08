@@ -8,15 +8,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="{% static 'assets/img/logo-fav.png' %}">
+    <link rel="icon" href="{% static 'assets/img/logo-fav.png' %}">
     <title>CallMeNow</title>
     <link rel="stylesheet" type="text/css" href="{% static 'assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'assets/lib/material-design-icons/css/material-design-iconic-font.min.css' %}"/>
-
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/lib/select2/css/select2.min.css' %}"/>
+<!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+-->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/lib/datatables/css/dataTables.bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/lib/bootstrap-slider/css/bootstrap-slider.css' %}"/>
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css"/>
+
+<!--
+<script>
+(function(d,h,w){var convertfox=w.convertfox=w.convertfox||[];convertfox.methods=['trackPageView','identify','track','setAppId'];convertfox.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);convertfox.push(e);return convertfox;}};for(var i=0;i<convertfox.methods.length;i++){var c=convertfox.methods[i];convertfox[c]=convertfox.factory(c)}s=d.createElement('script'),s.src="//d3sjgucddk68ji.cloudfront.net/convertfox.min.js",s.async=!0,e=d.getElementsByTagName(h)[0],e.appendChild(s),s.addEventListener('load',function(e){},!1),convertfox.setAppId("a4auede3"),convertfox.trackPageView()})(document,'head',window);
+
+convertfox.identify("{{user.userprofile.account.id}}", {
+	"email":  "{{user.email}}",
+	"usertype": "{{user.userprofile.usertype}}",
+	"name": "{{user.userprofile.name}}"
+});
+</script>
+-->
+
+<!-- Hotjar Tracking Code for http://callmenowhq.com -->
+<!--
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:709339,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+-->
+
+
   </head>
   <body>
     <div class="be-wrapper be-nosidebar-left">
@@ -26,21 +57,37 @@
           <div class="be-right-navbar">
 
             <ul class="nav navbar-nav navbar-right be-user-nav">
-              <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle"><img src="{% static 'assets/img/avatar.png' %}" alt="Avatar"><span class="user-name">Túpac Amaru</span></a>
+              <li class="dropdown">
+
+                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle">
+                <span id="av"><img src="{% static 'assets/settings.png' %}"></span>
+                <span class="user-name">{{user.userprofile.name}}</span></a>
+
                 <ul role="menu" class="dropdown-menu">
                   <li>
                     <div class="user-info">
                       <div class="user-name">{{user.userprofile.name}}</div>
-                      <div class="user-position online">Available</div>
+                      {% if user.userprofile.available %}
+                        <div class="user-position online">Available</div>
+                      {% else %}
+                        <div class="user-position offline">Unavailable</div>
+                      {% endif %}
+
                     </div>
                   </li>
-                  <li><a href="https://callmenow.freshdesk.com/support/home" target="_blank"><span class="icon mdi mdi-power"></span> Support Desk</a></li>
+                  <li><a href="https://callmenow.freshdesk.com/support/home" target="_blank"><span class="icon mdi mdi-help"></span> Support Desk</a></li>
+
+                  {% if user.userprofile.usertype == "Owner" %}
+                  <li><a href="{% url 'mainapp:billing'%}"><span class="icon mdi mdi-money"></span> Billing</a></li>
+                  <li><a href="{% url 'mainapp:referral'%}"><span class="icon mdi mdi-money"></span> Referral Program</a></li>
+                  {% endif %}
+                  <li><a href="{% url 'mainapp:changepassword'%}"><span class="icon mdi mdi-lock"></span> Change Password</a></li>
                   <li><a href="{% url 'mainapp:logout'%}"><span class="icon mdi mdi-power"></span> Logout</a></li>
                 </ul>
               </li>
             </ul>
           </div>
-
+      <a href="#" data-toggle="collapse" data-target="#be-navbar-collapse" class="be-toggle-top-header-menu collapsed">Menu</a>
           <div id="be-navbar-collapse" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li><a href="{% url 'mainapp:home'%}">Dashboard</a></li>
@@ -60,15 +107,32 @@
               <li><a href="{% url 'mainapp:team_edit' user.userprofile.id%}">My Profile</a></li>
               {% endif %}
 
-              {% if user.userprofile.usertype == "Owner" %}
-              <li><a href="{% url 'mainapp:billing'%}">Billing</a></li>
-              {% endif %}
             </ul>
           </div>
         </div>
       </nav>
 
+
+
+
+{% if user.userprofile.account.accountstatus == "inactive" %}
+      <div class="be-content">
+        <div class="main-content container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div role="alert" class="alert alert-danger alert-dismissible">
+                <span class="icon mdi mdi-close-circle-o"></span><strong>Your account seems to be inactive. Please contact support.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endif %}
+
+
 {% block body %}
+
+
 
 {% endblock %}
 
@@ -82,18 +146,35 @@
     <script src="{% static 'assets/js/main.js' %}" type="text/javascript"></script>
     <script src="{% static 'assets/lib/bootstrap/dist/js/bootstrap.min.js' %}" type="text/javascript"></script>
     <script src="{% static 'assets/lib/jquery-ui/jquery-ui.min.js' %}" type="text/javascript"></script>
-    <script src="{% static 'assets/lib/parsley/parsley.min.js' %}" type="text/javascript"></script>
     <script src="{% static 'assets/js/toastr.min.js' %}" type="text/javascript"/></script>
+    <script src="{% static 'assets/lib/datetimepicker/js/bootstrap-datetimepicker.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/lib/select2/js/select2.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/lib/bootstrap-slider/js/bootstrap-slider.js' %}" type="text/javascript"></script>
+
+    <script src="{% static 'assets/js/app-form-elements.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/lib/parsley/parsley.min.js' %}" type="text/javascript"></script>
 
     <script type="text/javascript">
       $(document).ready(function(){
       	//initialize the javascript
+      	App.init();
+      	App.formElements();
         $('form').parsley();
       });
     </script>
 
+
+{% block datatables %}
+
+{% endblock %}
+
+
+
 <!--
+{% if user.userprofile.usertype == "Owner" %}
   <script src="https://my.hellobar.com/d8179125dd929d819c3bec218385e47daa03ff3f.js" type="text/javascript" charset="utf-8" async="async"></script>
+{% endif %}
 -->
+
   </body>
 </html>

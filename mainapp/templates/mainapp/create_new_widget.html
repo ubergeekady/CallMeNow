@@ -32,6 +32,21 @@
                     </div>
 
                     <div class="form-group">
+                      <label class="col-sm-3 control-label">Greeting Text: </label>
+                      <div class="col-sm-6">
+                        <input type="text" required="" name="greeting_text" class="form-control" value="Please wait while we transfer your call">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Ring Timeout (In Seconds between 10 and 120): </label>
+                      <div class="col-sm-6">
+                        <input type="text" required="" name="ring_timeout" class="form-control" value="60">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
                       <label class="col-sm-3 control-label">Call Settings: </label>
                       <div class="col-sm-6">
                         <div class="be-radio be-radio-color inline">
@@ -65,7 +80,7 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Capture Leads When Offline: </label>
                       <div class="col-sm-6">
-                         <div class="switch-button switch-button-success">
+                         <div class="switch-button switch-button-primary">
                             <input type="checkbox" {% if obj.capture_leads %}checked{% endif %} {% if obj == null %}checked{% endif %} name="capture_leads" id="swt5"><span>
                               <label for="swt5"></label></span>
                           </div>                        
@@ -75,12 +90,25 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label">Show on mobile: </label>
                       <div class="col-sm-6">
-                         <div class="switch-button switch-button-success">
+                         <div class="switch-button switch-button-primary">
                             <input type="checkbox" {% if obj.show_on_mobile %}checked{% endif %} {% if obj == null %}checked{% endif %} name="show_on_mobile" id="swt6"><span>
                               <label for="swt6"></label></span>
                           </div>                        
                       </div>
                     </div>
+
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Allowed Countries (leave blank to allow all countries)</label>
+                      <div class="col-sm-6">
+                        <select multiple="" name="countries" class="select2">
+            {% for country in countries %}
+            <option value="{{country.country_code}}">{{country.country_name}}</option>
+            {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+
 
                      <div class="col-xs-6">
                         <p class="text-right">

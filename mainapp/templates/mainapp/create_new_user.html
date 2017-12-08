@@ -97,6 +97,8 @@
                           <input id="check8" type="checkbox" name="email_new_lead" {% if request.email_new_lead %}checked{% endif %}>
                           <label for="check8">New Lead</label>
                         </div>
+
+                        <!--
                         <div class="be-checkbox">
                           <input id="check9" type="checkbox" name="email_widget_daily_reports" {% if request.email_widget_daily_reports %}checked{% endif %}>
                           <label for="check9">Widget Daily Reports</label>
@@ -104,14 +106,58 @@
                         <div class="be-checkbox">
                           <input id="check10" type="checkbox" name="email_widget_weekly_reports" {% if request.email_widget_weekly_reports %}checked{% endif %}>
                           <label for="check10">Widget Weekly Reports</label>
-                        </div>                        
+                        </div>
+                        -->
+
                       </div>
                     </div>                    
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Availability Hours</label>
+                      <div class="col-sm-9">
+                        <input type="text" data-slider-value="[{% if request.availability_hours %} {{request.availability_hours}}{% else %}9,18{% endif %}]" data-slider-step="1" data-slider-max="24" data-slider-min="0" name="availability_hours" class="bslider form-control"> (ex. 9 AM - 6 PM, set 9 - 18)
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Weekday Availability</label>
+                      <div class="col-sm-6">
+                        <div class="be-checkbox">
+                          <input id="check11" type="checkbox" name="monday" {% if request.monday %}checked{% endif %}>
+                          <label for="check11">Monday</label>
+                        </div>
+                        <div class="be-checkbox">
+                          <input id="check12" type="checkbox" name="tuesday" {% if request.tuesday %}checked{% endif %}>
+                          <label for="check12">Tuesday</label>
+                        </div>
+                        <div class="be-checkbox">
+                          <input id="check13" type="checkbox" name="wednesday" {% if request.wednesday %}checked{% endif %}>
+                          <label for="check13">Wednesday</label>
+                        </div>
+                        <div class="be-checkbox">
+                          <input id="check14" type="checkbox" name="thursday" {% if request.thursday %}checked{% endif %}>
+                          <label for="check14">Thursday</label>
+                        </div>
+                        <div class="be-checkbox">
+                          <input id="check15" type="checkbox" name="friday" {% if request.friday %}checked{% endif %}>
+                          <label for="check15">Friday</label>
+                        </div>
+                        <div class="be-checkbox">
+                          <input id="check16" type="checkbox" name="saturday" {% if request.saturday %}checked{% endif %}>
+                          <label for="check16">Saturday</label>
+                        </div>
+                        <div class="be-checkbox">
+                          <input id="check17" type="checkbox" name="sunday" {% if request.sunday %}checked{% endif %}>
+                          <label for="check17">Sunday</label>
+                        </div>
+
+                      </div>
+                    </div>
 
 
                      <div class="col-xs-6">
                         <p class="text-right">
-                          <button type="submit" class="btn btn-space btn-primary btn-xl">Create User And Sent Invitation</button>
+                          <button type="submit" class="btn btn-space btn-primary btn-xl">Create User And Send Email Invitation</button>
                         </p>
                       </div>                                
 

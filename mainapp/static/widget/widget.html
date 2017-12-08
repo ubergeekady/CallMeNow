@@ -1,0 +1,179 @@
+<style type="text/css">
+  .callmenow-hide {
+    display: none;
+  }
+  #callmenow {
+    position: absolute;
+    bottom: 5%;
+    z-index: 1000000;
+    font-family: "Lato", "Roboto", arial, sans-serif;
+    color: #313c4c;
+    font-size: 14px;
+  }
+  .callmenow-left {
+    left: 3%;
+  }
+  .callmenow-right {
+    right: 3%;
+  }
+  .callmenow-img {
+    vertical-align: middle;
+  }
+  #callmenow-btn {
+    cursor: pointer;
+    width: 60px;
+  }
+  .callmenow-btn-left {
+    text-align: left;
+  }
+  .callmenow-btn-right {
+    text-align: right;
+  }
+  #callmenow-body {
+    max-width: 300px;
+    max-height: 800px;
+    margin-bottom: 4px;
+    padding: 30px 15px 10px 15px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+    border: thin solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    text-align: center;
+  }
+  #callmenow-body-message {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  #callmenow-body-sub {
+    font-size: 35px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+  #callmenow-close {
+    font-size: 15px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 2px 6px;
+    cursor: pointer;
+  }
+  #callmenow-alert {
+    cursor: pointer;
+    max-width: 200px;
+    margin-bottom: 4px;
+    padding: 10px 15px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+    border: thin solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+  }
+  #callmenow-alert-agent {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  #callmenow-alert-message {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  #callmenow-call-phone {
+    width: 250px;
+    margin: 8px 0;
+    text-align: left;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAMAAABYi/ZGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAulBMVEUAAADMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMwAAAA7FhxZAAAAPHRSTlMAVufLD3v+nGZG7uENkam1R04BwTj95BeMyAoGx7sJGuO/J+pQt4008MDfRDPrmijiGL4EiDrMdUml72c68CCxAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALiAAAC4gB5Y4pSQAAAJhJREFUGNNlztcWgjAMBuBotQ6cqOBGcG/cK+//XDZge5rjf5GLL2kTAMhkRQ548hKxwKmIKrLErEyGTsU2JzGs2lZLrW5bI7Wmba4gavHF7Y4yz+fYpcFen9lgSDgaMwwmhCE7EaIpofBhNl+YznJF6K1V2Ww17vaoIw8aj7FBNH+ezv8Gl6v8PbbX3+6JPdhN7vMVvz/wBcuMHpMxcdOsAAAAAElFTkSuQmCC") no-repeat left 5px center;
+    padding: 10px 5px 10px 30px;
+    border: thin solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+  }
+  #callmenow-call-phone:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+  }
+  #callmenow-call-date, #callmenow-call-time {
+    width: 290px;
+    height: 35px;
+    margin: 8px 0;
+    border: thin solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 6px 0;
+    background-color: white;
+    appearance: none;
+    -moz-appearance: none;
+    background: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI1NiAyNTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8Zz4KCQk8cG9seWdvbiBwb2ludHM9IjIyNS44MTMsNDguOTA3IDEyOCwxNDYuNzIgMzAuMTg3LDQ4LjkwNyAwLDc5LjA5MyAxMjgsMjA3LjA5MyAyNTYsNzkuMDkzICAgIiBmaWxsPSIjODA4MDgwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==") no-repeat right 5px center;
+  }
+  #callmenow-call-phone-label, #callmenow-lead-label {
+    color: grey;
+    font-size: 14px;
+  }
+  #callmenow-call-now, #callmenow-call-later, #callmenow-lead {
+    margin: 8px 0;
+    cursor: pointer;
+    height: 40px;
+    width: 290px;
+    background: blue;
+    color: white;
+    border: 1px solid blue;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  #callmenow-call-later, #callmenow-lead {
+    color: white;
+    background: grey;
+    border-color: grey;
+  }
+  #callmenow-disclaimer {
+    color: grey;
+    font-size: 8px;
+    margin: 8px 0;
+    padding-left: 25px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAMAAAA8w5+RAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABWVBMVEUAAADMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMwAAABh0liMAAAAcXRSTlMAJ6vo6rMzIaTxw0xGuvOvKku1yTgrwL1UA0m04+mnNy6f5+W8U/nBWAlRsv3TIwjPzVkTQtDEchQ5X8yVztiFv47GB7md7m02b1X1R5c6sDvKhIMb8l169Ot8LASC7WSj301gFnQgLZSZSIyNijHkMlLCBNYAAAABYktHRACIBR1IAAAACXBIWXMAAAuIAAALiAHljilJAAABBUlEQVQY02NggABGJmYWVjYGZMDOwcnFzcPLxy8AFxIU4hQWATFExTjFJSSBDClpGVk5eZi8gqKSsooqg5q6hiaySZJa2joMunoMaEDfgMHQCIlvbAwkTEwZzMwRYhaFlkDSypqB1QYhaGsHIu0dGByd4GIShc4gysWVgccNxHD3ABKFnmA5Fi8GSW8fIMO30I/BXxksFqCmz8AQyA9iBhUGF4aABZlMgYRPKJgdVhgOMTlCCkRGRoE50TFgKjYOTMUXIvunMAxCsyQgxFgTYaFZmAQTSy5MgTFTC9MgjPTCZISmjEJwWEUXBiMbn1mYBYyBwmzUQEwtzMmFehMJ5OXLFsDYAIBlJWU4O27rAAAAAElFTkSuQmCC") no-repeat left 5px center;
+  }
+  #callmenow-credit {
+    color: grey;
+    font-size: 8px;
+    text-align: right;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAMAAACg0N8BAAAASFBMVEUAAAD/6wD/+wD/ygD/xwD/+wD/swD/7QD/6gD/7QD/7QD/+wD/+wD/7QD/oAD/6gD/6gD/7QD/ygD/xAD/ygD/6gD/+wD/7QBoTEAOAAAAFnRSTlMAN/PPYk4N8Orj3L2yn4qIb2lBJBwWMnIHpAAAADdJREFUCNdjAAFGMMkqAGYziQJJEU4eIMnGLM7Nz8LAx8wlxiEM5PMyMYJE2VlBClkEwbqEQAQAKCIBK62J/g0AAAAASUVORK5CYII=") no-repeat right 5px center;
+  }
+  #callmenow-credit a {
+    color: grey;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  #callmenow-credit a:hover {
+    font-weight: bold;
+  }
+</style>
+<div id="callmenow">
+  <div id="callmenow-body" class="callmenow-hide">
+    <div id="callmenow-close">x</div>
+    <div id="callmenow-body-message"></div>
+    <div id="callmenow-body-sub"></div>
+    <div id="callmenow-call">
+      <div>
+        <label for="callmenow-call-phone" id="callmenow-call-phone-label">Enter your phone number</label>
+        <input id="callmenow-call-phone" type="text">
+      </div>
+      <div id="callmenow-now">
+        <button id="callmenow-call-now">Call me now</button>
+        <button id="callmenow-call-later">Call me later</button>
+      </div>
+      <div id="callmenow-later" class="callmenow-hide">
+        <label id="callmenow-lead-label">Choose the best time for callback</label><br>
+        <!--<select id="callmenow-call-date">
+        </select>-->
+        <select id="callmenow-call-time">
+        </select>
+        <button id="callmenow-lead">Request a call-back</button>
+      </div>
+    </div>
+    <div id="callmenow-disclaimer">Your phone number will not be collected or sold for any marketing purposes.</div>
+    <div id="callmenow-credit">
+      <a href="https://callmenowhq.com" target="_blank">Powered by CallMeNow</a>
+    </div>
+  </div>
+  <div id="callmenow-alert" class="callmenow-hide">
+    <!--<div id="callmenow-alert-agent"></div>-->
+    <div id="callmenow-alert-message"></div>
+  </div>
+  <div id="callmenow-wid">
+    <img id="callmenow-btn" alt="CallMeNow">
+  </div>
+</div>

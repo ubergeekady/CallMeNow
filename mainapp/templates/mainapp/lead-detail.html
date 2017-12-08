@@ -9,65 +9,153 @@
 
       <div class="be-content">
         <div class="main-content container-fluid">
+
+
+
           <div class="row">
-            <div class="col-xs-12 col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading"><span class="title">Lead Details : #{{lead.id}}</span></div>
+            <div class="col-md-6">
+              <div class="panel user-info-list">
+                <div class="panel-heading">
+                  Lead Details
+                  <div class="tools">
+                      <button class="btn btn-space btn-primary btn-xs" onclick="editLead(event, {{lead.id}})">Edit</button>
+                      <button type="button" onclick="callnow(event, {{lead.id}});" class="btn btn-xs btn-space btn-primary">Call</button>
+                  </div>
+                </div>
                 <div class="panel-body">
+                    <table class="no-border no-strip skills" width="100%">
+                      <tbody class="no-border-x no-border-y">
+                        <tr>
+                          <td class="icon"><span class="mdi mdi-case"></span></td>
+                          <td class="item">Id</td>
+                          <td>{{lead.id}}</td>
+                        </tr>
+                        <tr>
+                          <td class="icon"><span class="mdi mdi-case"></span></td>
+                          <td class="item">Status</td>
+                          <td>
+                            {% if lead.lead_status == "Uncontacted" %}<span class="label label-danger">Uncontacted</span>{% endif %}
+                            {% if lead.lead_status == "Contacted" %}<span class="label label-success">Contacted</span>{% endif %}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="icon"><span class="mdi mdi-widgets"></span></td>
+                          <td class="item">Widget</td>
+                          <td>{{lead.widget.name}}</td>
+                        </tr>
+                        <tr>
+                          <td class="icon"><span class="mdi mdi-face"></span></td>
+                          <td class="item">CallMeNow Manager</td>
+                          <td>
+                            {% if lead.owner != null %}
+                             {{ lead.owner.name }}
+                            {% endif %}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="icon"><span class="mdi mdi-account"></span></td>
+                          <td class="item">Contact Name</td>
+                          <td>{% if lead.name != "" %}{{lead.name}}{% endif %}</td>
+                        </tr>
+                        <tr>
+                          <td class="icon"><span class="mdi mdi-smartphone-android"></span></td>
+                          <td class="item">Contact Phone</td>
+                          <td>{{lead.phone}}</td>
+                        </tr>
+                        <tr>
+                          <td class="icon"><span class="mdi mdi-email"></span></td>
+                          <td class="item">Contact E-Mail:</td>
+                          <td>{% if lead.email != "" %}{{lead.email}}{% endif %}</td>
+                        </tr>
+                        <tr>
+                          <td class="icon"><span class="mdi mdi-calendar"></span></td>
+                          <td class="item">Date:</td>
+                          <td>{{lead.datetime|date}}</td>
+                        </tr>
+                        <tr>
+                          <td class="icon"><span class="mdi mdi-time"></span></td>
+                          <td class="item">Best Time To Contact:</td>
+                          <td>{{lead.best_time_to_contact}}</td>
+                        </tr>
+                        <tr>
+                          <td class="icon"><span class="mdi mdi-globe-alt"></span></td>
+                          <td class="item">Location:</td>
+                          <td>{% if lead.country != "" %}{{lead.country}}{% endif %}, {% if lead.city %}{{lead.city}}{% endif %}</td>
+                        </tr>
+                        <tr>
+                          <td class="icon"><span class="mdi mdi-time-interval"></span></td>
+                          <td class="item">Timezone:</td>
+                          <td>{% if lead.location %}{{lead.location.time_zone}}{% endif %}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+                  Location
+                </div>
+                <div class="panel-body">
+                    <iframe
+                      width="600"
+                      height="460"
+                      frameborder="0"
+                      scrolling="no"
+                      marginheight="0"
+                      marginwidth="0"
+                      src="https://maps.google.com/maps?q={{lead.location.latitude}},{{lead.location.longitude}}&hl=es;z=14&amp;output=embed"
+                     >
+                     </iframe>
 
-                  <table class="table table-condensed table-hover table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Id</th>
-                        <th>Status</th>
-                        <th>Lead Information</th>
-                        <th>Widget</th>
-                        <th>Date/Time</th>
-                        <th>Manager</th>
-                        <th>Call Now</th>                        
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>{{lead.id}}</td>
-                        <td>
-                          {% if lead.lead_status == "Uncontacted" %}<span class="label label-danger">Uncontacted</span>{% endif %}
-                          {% if lead.lead_status == "Contacted" %}<span class="label label-success">Contacted</span>{% endif %}
-                        </td>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                        <td>{% if lead.name != "" %}Name : {{lead.name}}<br />{% endif %}
-                            Phone : {{lead.phone}}<br />
-                            {% if lead.email != "" %}Email: {{lead.email}}<br />{% endif %}
-                            {% if lead.ipaddress != "" %}IP Address: {{lead.ipaddress}}<br />{% endif %}
-                            {% if lead.country != "" %}Country: {{lead.country}}{% endif %}
-                        </td>
-                        <td>{{lead.widget.name}}</td>
-                        <td>{{lead.datetime}}</td>
-                        <td>
-                          {% if lead.owner != null %}
-                           {{ lead.owner.name }}
-                          {% endif %}
-                        </td>
-                        <td class="actions">
-                          <div class="icon-container" style="background-color: unset;">
-                            <div class="icon"><a href="#"><span class="mdi mdi-phone" onclick="call_from_admin(event, {{lead.id}});" ></span></a></div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>                
+
 
   {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/toastr.min.css' %}"/>
     <script type="text/javascript">
+        call_uuid="";
 
-      function call_from_admin(event, leadid){
+
+      function doPoll(){
+          $.get('/widgetapi/callstatus/'+call_uuid+'/', function(data) {
+              d = JSON.parse(data);
+              console.log(data);
+              if(d.callmenow_status=="call-connecting"){
+                  document.getElementById("callstatus").innerHTML = "<center><img src='{% static 'assets/ringing.gif' %}'><h3>Call Connecting</h3></center>";
+                  setTimeout(doPoll,2000);
+              }
+              if(d.callmenow_status=="call-completed"){
+                  document.getElementById("callstatus").innerHTML = "<center><img src='{% static 'assets/hangup.jpg' %}' width='200' height='200'><h3>Call Completed</h3></center>";
+
+              }
+              if(d.callmenow_status=="call-failed"){
+                  document.getElementById("callstatus").innerHTML = "<center><img src='{% static 'assets/missedcall.png' %}' width='200' height='200'><h3>"+d.callmenow_comments+"</h3></center>";
+
+              }
+              if(d.callmenow_status=="call-inprogress"){
+                  document.getElementById("callstatus").innerHTML = "<center><img src='{% static 'assets/oncall.gif' %}' width='200' height='200'><h3>In Conversation</h3></center>";
+                  setTimeout(doPoll,2000);
+              }
+          });
+      }
+
+      function callnow(event, leadid){
+        document.getElementById("callstatus").innerHTML = "<center><img src='{% static 'assets/ringing.gif' %}'><h3>Call Queued</h3></center>";
+        $('#callfromadmin').modal('show');
         event.preventDefault();
         url = "/leads/call_from_admin/"+leadid+"/";
         $.get( url, function( data ) {
           data = JSON.parse(data)
           if(data.success){
-              toastr.success("Connecting ...");
+              call_uuid = data.callmenow_uuid;
+              doPoll();
+
           } else {
               toastr.error("Error");
           }
@@ -75,112 +163,201 @@
       }
     </script>
 
-            </div>
+
+
+    <div id="callfromadmin" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+      <div class="modal-dialog custom-width">
+        <div class="modal-content">
+          <div class="modal-body">
+
+          <span id="callstatus"></span>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default md-close">Close</button>
           </div>
         </div>
       </div>
-
-          <div class="row">
-            <div class="col-xs-12 col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading"><span class="title">Call History</span></div>
-                <div class="panel-body">
+    </div>
 
 
-                  <table class="table table-condensed table-hover table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Id</th>
-                        <th>Status</th>
-                        <th>Comments</th>
-                        <th>Date and Time</th>
-                        <th>Duration</th>
-                        <th>Manager</th>
-                        <th>Play Recording</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    {% for call in calls %}
-                      <tr>
-                        <td>{{call.id}}</td>
-                        <td>
-                          {% if call.callmenow_status == "call-inprogress" %}<span class="label label-success">In Progress</span>{% endif %}
-                          {% if call.callmenow_status == "call-completed" %}<span class="label label-success">Completed</span>{% endif %}
-                          {% if call.callmenow_status == "call-failed" %}<span class="label label-danger">Failed</span>{% endif %}
-                          {% if call.callmenow_status == "call-connecting" %}<span class="label label-warning">Connecting</span>{% endif %}
-                        </td>
-                        <td>{{call.callmenow_comments}}</td>
-                        <td>{{call.datetime}}</td>
-                        <td>{{call.plivo_aleg_duration}} seconds</td>
-                        <td>{{call.agent_name}}</td>
-                        <td>
-                          {% if call.record_url != "" %}
-                          <audio controls>
-                            <source src="{{call.record_url}}" type="audio/mpeg"/>
-                          </audio>
-                          {% endif %}
-                        </td>
-                      </tr>
-                    {% endfor %}
-                    </tbody>
-                  </table>
 
-            </div>
+
+
+
+    <div id="editlead" tabindex="-1" role="dialog" class="modal fade colored-header colored-header-primary">
+      <div class="modal-dialog custom-width">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close md-close"><span class="mdi mdi-close"></span></button>
+            <h3 class="modal-title">Edit Lead</h3>
+          </div>
+          <div class="modal-body">
+                <form action="#" style="border-radius: 0px;" class="form-horizontal group-border-dashed">
+                  <input type="hidden" id="leadid" value="">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Name : </label>
+                      <div class="col-sm-6">
+                        <input id="name" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Phone : </label>
+                      <div class="col-sm-6">
+                        <input id= "phone" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Email Address : </label>
+                      <div class="col-sm-6">
+                        <input id = "email" type="text" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Status</label>
+                      <div class="col-sm-6">
+                        <select class="form-control" id="lead_status">
+                          <option value="Uncontacted">Uncontacted</option>
+                          <option value="Contacted">Contacted</option>
+                        </select>
+                      </div>
+                    </div>
+
+
+                  </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default" onclick="editlead_save();">Save</button>
+            <button type="button" data-dismiss="modal" class="btn btn-default md-close">Close</button>
           </div>
         </div>
       </div>
+    </div>
+
+    <script type="text/javascript">
+      function editlead_save(){
+         event.preventDefault();
+         leadid = document.getElementById("leadid").value;
+         name = document.getElementById("name").value;
+         phone = document.getElementById("phone").value;
+         email = document.getElementById("email").value;
+         lead_status = document.getElementById("lead_status").value;
+         url = "/leads/ajax_edit_lead/"+leadid+"/";
+        $.post( url, { "name": name, "phone": phone, "email":email, "lead_status":lead_status } ).done( function(data){
+            data = JSON.parse(data);
+            if(data.success){
+              toastr.success("Done");
+              location.reload();
+            } else {
+              toastr.error("Error");
+            }
+        });
+      }
+
+      function editLead(event, leadid){
+        event.preventDefault();
+        url = "/leads/ajax_edit_lead/"+leadid+"/";
+        $.get( url, function( data ) {
+          data = JSON.parse(data)
+          if(data.success){
+               document.getElementById("leadid").value=leadid;
+               document.getElementById("name").value=data.name;
+               document.getElementById("phone").value=data.phone;
+               document.getElementById("email").value=data.email;
+               if(data.lead_status=="Uncontacted"){
+                    document.getElementById("lead_status").selectedIndex=0;
+               } else {
+                    document.getElementById("lead_status").selectedIndex=1;
+               }
+               $('#editlead').modal('show');
+          } else {
+          }
+        });
+      }
+    </script>
+
+
+
 
 
 
           <div class="row">
-            <div class="col-xs-12 col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-heading"><span class="title">Notes</span>
-                    <div class="tools"><button data-toggle="modal" data-target="#form-bp1" type="button" class="btn btn-space btn-primary">Add New Note</button></div>
-
+            <div class="col-md-6">
+              <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+                  Notes
+                  <div class="tools"><button data-toggle="modal" data-target="#form-bp1" type="button" class="btn btn-xs btn-space btn-primary">Add New Note</button></div>
                 </div>
-                <div class="panel-body">
-
-                <span id="notesajax">
-                  <table class="table table-condensed table-hover table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Id</th>
-                        <th width="15%">Manager</th>
-                        <th width="15%">Timestamp</th>
-                          <th width="5%">Actions</th>
-                        <th>Comments</th>
-                      </tr>
-                    </thead>
+                <div class="panel-body table-responsive">
+                  <span id="notesajax">
+                  <table class="table">
                     <tbody>
                     {% for note in notes %}
                       <tr>
-                        <td style="vertical-align: top;">{{note.id}}</td>
-                        <td style="vertical-align: top;">{{note.user.name}}</td>
-                        <td style="vertical-align: top;">{{note.timestamp}}</td>
+                        <td class="cell-detail" style="width:95%";>
+                          <span id="note{{note.id}}">{{note.text}}</span>
+                          <span class="cell-detail-description">{{note.user.name}} - {{note.timestamp}}</span>
+                        </td>
                         <td style="vertical-align: top;">
                             <a href="#" onclick="deleteNote(event, {{note.id}}, {{lead.id}})"><div class="icon"><span class="mdi mdi-delete"></span></div></a>
                             <a href="#" onclick="editNote(event, {{note.id}})"><div class="icon"><span class="mdi mdi-edit"></span></div></a>
                         </td>
-                          <td style="vertical-align: top;"><span id="note{{note.id}}">{{note.text}}</span></td>
                       </tr>
                     {% endfor %}
                     </tbody>
                   </table>
                 </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="panel panel-default panel-table">
+                <div class="panel-heading">
+                  <div class="title">Call History</div>
+                </div>
+                <div class="panel-body table-responsive">
 
+{% load tz %}
+                  <table class="table">
+                    <tbody>
+                    {% for call in calls %}
+                      <tr>
+                        <td style="width:20%;">
+                          <div class="icon-container" style="background-color: unset;">
+                          {% if call.callmenow_status == "call-inprogress" %}<div class="icon" style="background-color:#37b358;"><span class="mdi mdi-phone-in-talk"></span></div>{% endif %}
+                          {% if call.callmenow_status == "call-completed" %}<div class="icon" style="background-color:#37b358;"><span class="mdi mdi-phone-end"></span></div>{% endif %}
+                          {% if call.callmenow_status == "call-failed" %}<div class="icon" style="background-color:#eb6357;"><span class="mdi mdi-phone-missed"></span></div>{% endif %}
+                          {% if call.callmenow_status == "call-connecting" %}<div class="icon" style="background-color:#37b358;"><span class="mdi mdi-phone-ring"></span></div>{% endif %}
+                          </div>
+                        </td>
+                        <td class="cell-detail"> <span>{{call.callmenow_comments}}</span><span class="cell-detail-description">{{call.plivo_aleg_duration}} seconds - {{call.agent_name}}</span></td>
+                        <td class="cell-detail"><span>{{call.datetime|date}}</span><span class="cell-detail-description">{{call.datetime|time}}</span></td>
+                        <td>
+                          <div class="icon-container" style="background-color: unset;">
+                          {% if call.record_url != "" %}
+                          <audio id = "{{call.callmenow_uuid}}">
+                            <source src="{{call.record_url}}" type="audio/mpeg"/>
+                          </audio>
+                          <div class="icon"><span class="mdi mdi-play" onclick="document.getElementById('{{call.callmenow_uuid}}').play()"></span></div>
+                          {% endif %}
+                          </div>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+
+
+
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
 
 
-
-
-
-        </div>
-      </div>
 
 
 
@@ -247,6 +424,21 @@
       }
 
     </script>
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+
+
+
 
 
 {% endblock %}

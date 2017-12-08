@@ -1,0 +1,151 @@
+
+{% extends 'mainapp/base.html' %}
+
+
+{% block body %}
+
+
+
+      <div class="be-content">
+        <div class="main-content container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading"><span class="title">Edit Appearance For Widget : {{ widgetobj.name }}</span></div>
+                <div class="panel-body">
+
+
+                {% if error %}
+                  <div role="alert" class="alert alert-danger">
+                    {{error}}
+                  </div>
+                {% endif %}
+
+                {% if success %}
+                  <div role="alert" class="alert alert-success">
+                    {{success}} . <a href="{% url 'mainapp:directcall' widgetobj.id %}" target="_blank">Preview Widget</a>
+                  </div>
+                {% endif %}
+
+                  <form action="" method="post" style="border-radius: 0px;" class="form-horizontal group-border-dashed">
+
+                    {% csrf_token %}
+
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Show Alert When Available : </label>
+                      <div class="col-sm-6">
+                         <div class="switch-button switch-button-success">
+                            <input type="checkbox" {% if widgetobj.appearance_showalert %}checked{% endif %} name="appearance_showalert" id="swt5"><span>
+                              <label for="swt5"></label></span>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alert Delay (in milliseconds): </label>
+                      <div class="col-sm-6">
+                        <input type="text" required name="appearance_showalert_after" value="{{ widgetobj.appearance_showalert_after }}" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Play Sound On Alert : </label>
+                      <div class="col-sm-6">
+                         <div class="switch-button switch-button-success">
+                            <input type="checkbox" {% if widgetobj.appearance_playsoundonalert %}checked{% endif %} name="appearance_playsoundonalert" id="swt6"><span>
+                              <label for="swt6"></label></span>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alert Text: </label>
+                      <div class="col-sm-6">
+                        <input type="text" required name="appearance_alerttext" value="{{ widgetobj.appearance_alerttext }}" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Call Text: </label>
+                      <div class="col-sm-6">
+                        <input type="text" required name="appearance_calltext" value="{{ widgetobj.appearance_calltext }}" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Lead Text: </label>
+                      <div class="col-sm-6">
+                        <input type="text" required name="appearance_leadtext" value="{{ widgetobj.appearance_leadtext }}" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Lead Thank You Text: </label>
+                      <div class="col-sm-6">
+                        <input type="text" required name="appearance_leadthankyoutext" value="{{ widgetobj.appearance_leadthankyoutext }}" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alert Text Color: </label>
+                      <div class="col-sm-6">
+                        <input type="text" required name="appearance_alert_textcolor" value="{{ widgetobj.appearance_alert_textcolor }}" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Alert Background Color: </label>
+                      <div class="col-sm-6">
+                        <input type="text" required name="appearance_alert_background" value="{{ widgetobj.appearance_alert_background }}" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Body Text Color: </label>
+                      <div class="col-sm-6">
+                        <input type="text" required name="appearance_body_textcolor" value="{{ widgetobj.appearance_body_textcolor }}" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Body Background Color: </label>
+                      <div class="col-sm-6">
+                        <input type="text" required name="appearance_body_background" value="{{ widgetobj.appearance_body_background }}" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Position: </label>
+                      <div class="col-sm-6">
+                        <div class="be-radio be-radio-color inline">
+                          <input type="radio" {% if widgetobj.appearance_position == "left"%}checked{% endif %} name="appearance_position" id="rad1" value="left">
+                          <label for="rad1">Left</label>
+                        </div>
+                        <div class="be-radio be-radio-color inline">
+                          <input type="radio" {% if widgetobj.appearance_position == "right"%}checked{% endif %} name="appearance_position" id="rad2" value="right">
+                          <label for="rad2">Right</label>
+                        </div>
+                      </div>
+                    </div>
+
+
+                     <div class="col-xs-6">
+                        <p class="text-right">
+                          <button type="submit" class="btn btn-space btn-primary btn-xl">Save</button>
+                        </p>
+                      </div>                                
+
+                  </form>
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+{% endblock %}

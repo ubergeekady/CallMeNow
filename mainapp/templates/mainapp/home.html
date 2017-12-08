@@ -12,42 +12,32 @@
 
         <h2 class="page-head-title">Today</h2>
         <div class="row">
-            <div class="col-xs-12 col-md-6 col-lg-3">
-                <div class="widget widget-tile" style="padding-top: 0px; padding-bottom: 5px">
-                  <div class="desc"><h4>Visitors</h4></div>
-                  <div class="data-info">
-                    <div class="value">
-                        <span class="indicator indicator-equal mdi mdi-chevron-right"></span><span data-toggle="counter" data-end="113" class="number">1332</span>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-md-6 col-lg-4">
                 <div class="widget widget-tile" style="padding-top: 0px; padding-bottom: 5px">
                   <div class="desc"><h4>New Leads</h4></div>
                   <div class="data-info">
                     <div class="value">
-                        <span class="indicator indicator-equal mdi mdi-chevron-right"></span><span data-toggle="counter" data-end="113" class="number">34</span>
+                        <span class="indicator indicator-equal mdi mdi-chevron-right"></span><span data-toggle="counter" data-end="113" class="number">{{today_new_leads}}</span>
                     </div>
                   </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-md-6 col-lg-4">
                 <div class="widget widget-tile" style="padding-top: 0px; padding-bottom: 5px">
                   <div class="desc"><h4>Completed Calls</h4></div>
                   <div class="data-info">
                     <div class="value">
-                        <span class="indicator indicator-equal mdi mdi-chevron-right"></span><span data-toggle="counter" data-end="113" class="number">8</span>
+                        <span class="indicator indicator-equal mdi mdi-chevron-right"></span><span data-toggle="counter" data-end="113" class="number">{{today_calls_completed}}</span>
                     </div>
                   </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="col-xs-12 col-md-6 col-lg-4">
                 <div class="widget widget-tile" style="padding-top: 0px; padding-bottom: 5px">
                   <div class="desc"><h4>Missed Calls</h4></div>
                   <div class="data-info">
                     <div class="value">
-                        <span class="indicator indicator-equal mdi mdi-chevron-right"></span><span data-toggle="counter" data-end="113" class="number">26</span>
+                        <span class="indicator indicator-equal mdi mdi-chevron-right"></span><span data-toggle="counter" data-end="113" class="number">{{today_calls_failed}}</span>
                     </div>
                   </div>
                 </div>
@@ -74,31 +64,15 @@ google.charts.load('current', {'packages':['line']});
 
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'Day');
-      data.addColumn('number', 'New Leads');
+      data.addColumn('number', 'Missed Calls');
       data.addColumn('number', 'Completed Calls');
 
       data.addRows([
-        ["3 Nov",  20, 8],
-        ["4 Nov",  22, 11],
-        ["5 Nov",  21,  5],
-        ["6 Nov",  17, 4],
-        ["7 Nov",  15, 3],
-        ["8 Nov",  14, 11],
-        ["9 Nov",  29, 9],
-        ["10 Nov",  30, 14],
-        ["11 Nov",  35, 18],
-        ["12 Nov",  28, 14],
-        ["13 Nov",  25, 13],
-        ["14 Nov",  32, 19],
-        ["15 Nov",  30, 17],
-        ["16 Nov",  24, 11],
-        ["17 Nov",  20, 9],
-        ["18 Nov",  14, 5],
-        ["19 Nov",  17, 8],
-        ["20 Nov",  26, 12],
-        ["21 Nov",  23, 12],
-        ["22 Nov",  22, 13],
-        ["23 Nov",  21, 19],
+
+      {% for i in chart_items %}
+      ["{{i.date}}", {{i.call_failed}}, {{i.call_completed}}],
+      {% endfor %}
+
       ]);
 
       var options = {

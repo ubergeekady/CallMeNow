@@ -34,6 +34,22 @@
                     </div>
 
                     <div class="form-group">
+                      <label class="col-sm-3 control-label">Greeting Text: </label>
+                      <div class="col-sm-6">
+                        <input type="text" required="" name="greeting_text" class="form-control" value="{{widgetobj.greeting_text}}">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Ring Timeout (In Seconds between 10 and 120): </label>
+                      <div class="col-sm-6">
+                        <input type="text" required="" name="ring_timeout" class="form-control" value="{{widgetobj.ring_timeout}}">
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group">
                       <label class="col-sm-3 control-label">Call Settings: </label>
                       <div class="col-sm-6">
                         <div class="be-radio be-radio-color inline">
@@ -86,9 +102,21 @@
                     </div>
 
 
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Allowed Countries (leave blank to allow all countries)</label>
+                      <div class="col-sm-6">
+                        <select multiple="" name="countries" class="select2">
+            {% for country in countries %}
+            <option value="{{country.country_code}}" {% if country.selected %}selected{% endif %}>{{country.country_name}}</option>
+            {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+
+
                      <div class="col-xs-6">
                         <p class="text-right">
-                          <button type="submit" class="btn btn-space btn-primary btn-xl">Update</button>
+                          <button type="submit" class="btn btn-space btn-primary btn-xl">Save</button>
                         </p>
                       </div>                                
 

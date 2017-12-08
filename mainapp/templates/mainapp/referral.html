@@ -1,0 +1,15 @@
+
+{% extends 'mainapp/base.html' %}
+
+
+{% block body %}
+
+{% if token == None %}
+<center><h1>Please contact support to setup your referral program account</h1></center>
+{% else %}
+<iframe height="850px" width="100%" frameborder="0" src="https://callmenowhq.firstpromoter.com/iframe?at={{token}}"></iframe>
+{% endif %}
+
+
+
+{% endblock %}

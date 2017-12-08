@@ -8248,7 +8248,7 @@ canvas {
   line-height: 60px;
   height: 60px;
   width: 230px;
-  background-image: url("../img/logo.jpeg");
+  background-image: url("../img/logo-new.png");
   background-repeat: no-repeat;
   background-position: 20px center;
   background-size: 190px;
@@ -8272,7 +8272,7 @@ canvas {
   }
 }
 .be-nosidebar-left .be-top-header .navbar-header .navbar-brand {
-  width: 200px;
+  width: 220px;
 }
 @media (max-width: 767px) {
   .be-top-header .navbar-header {
@@ -12123,7 +12123,7 @@ li.L9 {
   table-layout: fixed;
 }
 .user-info-list table tr td {
-  padding: 12px 0;
+  padding: 10px 0;
 }
 .user-info-list table tr td.icon {
   width: 33px;

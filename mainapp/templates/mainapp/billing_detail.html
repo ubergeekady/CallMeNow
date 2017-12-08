@@ -1,0 +1,139 @@
+
+
+{% extends 'mainapp/base.html' %}
+
+
+{% block body %}
+<script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+<script type="text/javascript">
+	Paddle.Setup({
+		vendor: 28303
+	});
+</script>
+
+
+      <div class="be-content">
+        <div class="main-content container-fluid">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading"><span class="title">Your Subscriptions</span></div>
+                <div class="panel-body">
+
+                  <table class="table table-condensed table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Subscription Id</th>
+                        <th>Plan Id</th>
+                        <th>Plan Name</th>
+                        <th>Status</th>
+                        <th>Next Bill Date</th>
+                        <th>Update</th>
+                        <th>Cancel</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in subscriptions %}
+                        <tr>
+                            <td>{{s.paddle_subscription_id}}</td>
+                            <td>{{s.plan.paddle_plan_id}}</td>
+                            <td>{{s.plan.paddle_plan_name}}</td>
+                            <td>
+                                {% if s.status == "active" %}
+                                    <span class="label label-success">Active</span>
+                                {% endif %}
+                                {% if s.status == "past_due" %}
+                                    <span class="label label-warning">Past Due</span>
+                                {% endif %}
+                                {% if s.status == "deleted" %}
+                                    <span class="label label-danger">Deleted</span>
+                                {% endif %}
+                            </td>
+                            <td>{{s.next_bill_date}}</td>
+                            <td><a href="{{s.update_url}}" target="_blank">Update</a></td>
+                            <td><a href="{{s.cancel_url}}" target="_blank">Cancel</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading"><span class="title">Your Account Limitations</span></div>
+                <div class="panel-body">
+
+                  <table class="table table-condensed table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Maxmium Minutes Per Month</th>
+                        <th>Maxmum Number Of Calls Per Month</th>
+                        <th>Maxmum Number Of Widgets</th>
+                        <th>Maxmum Number Of Users</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{limits.max_minutes_per_month}}</td>
+                            <td>{{limits.max_calls_per_month}}</td>
+                            <td>{{limits.max_widgets}}</td>
+                            <td>{{limits.max_users}}</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading"><span class="title">Add New Subscription</span></div>
+                <div class="panel-body">
+
+                  <table class="table table-condensed table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Plan Id</th>
+                        <th>Plan Name</th>
+                        <th>Price</th>
+                        <th>Interval</th>
+                        <th>Max. Minutes Per Month</th>
+                        <th>Max. Calls Per Month</th>
+                        <th>Max. Widgets</th>
+                        <th>Max. Users</th>
+                        <th>Buy</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in plans %}
+                        <tr>
+                            <td>{{p.paddle_plan_id}}</td>
+                            <td>{{p.paddle_plan_name}}</td>
+                            <td>{{p.price}}</td>
+                            <td>{{p.interval}}</td>
+                            <td>{{p.max_minutes_per_month}}</td>
+                            <td>{{p.max_calls_per_month}}</td>
+                            <td>{{p.max_widgets}}</td>
+                            <td>{{p.max_users}}</td>
+                            <td><a href="#!" data-product="{{p.paddle_plan_id}}" data-theme="none" data-success="{% url 'mainapp:billing_success'%}" data-email="{{user.email}}" data-passthrough="{{user.userprofile.account.id}}" class="paddle_button btn btn-warning" target="_blank">Checkout</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+{% endblock %}

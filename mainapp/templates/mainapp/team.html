@@ -17,8 +17,8 @@
             <!--Bordered Table-->
             <div class="col-sm-12">
               <div class="panel panel-default">
-                <div class="panel-heading">Team 
-                  <div class="tools"><a href="{% url 'mainapp:team_create_new'%}"><button class="btn btn-space btn-default"><i class="icon icon-left mdi mdi-globe"></i>Create New</button></a></div>
+                <div class="panel-heading">Team of Managers
+                  <div class="tools"><a href="{% url 'mainapp:team_create_new'%}"><button class="btn btn-space btn-default"><i class="icon icon-left mdi mdi-globe"></i>Create New Manager</button></a></div>
                 </div>
                 <div class="panel-body">
                   <table class="table table-condensed table-hover table-bordered">
@@ -28,8 +28,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Current Availability</th>
-                        <th>Phone verified</th>
-                        <th>Phone</th>                        
+                        <th>Phone</th>
                         <th>Widgets</th>
                         <th>Role</th>
                         <th class="actions"></th>                        
@@ -50,17 +49,10 @@
                         </td>
                         <td>{{t.user.email}}</td>
                         <td>
-                          <div class="switch-button switch-button-success">
+                          <div class="switch-button switch-button-primary">
                             <input type="checkbox" {% if t.available %}checked{% endif %} name="swt{{t.id}}" id="swt{{t.id}}" onchange="toggleavailability({{t.id}});"><span>
                               <label for="swt{{t.id}}"></label></span>
                           </div>
-                        </td>
-                        <td>
-                            {% if t.verified %}
-                                <img width=20 height=20 src="{% static 'assets/online.png' %}"/>
-                            {% else %}
-                                <img width=20 height=20 src="{% static 'assets/offline.png' %}"/>
-                            {% endif %}
                         </td>
                         <td>{{t.phone}}</td>
                         <td>{{t.widgets}}</td>
@@ -80,10 +72,7 @@
             </div>
 
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/toastr.min.css' %}"/>
-
-
     <script type="text/javascript">
-
       function toggleavailability(userid){
         val = document.getElementById("swt"+userid).checked;
         url = "/team/toggleavailability/"+userid+"/"+val+"/";
@@ -95,8 +84,6 @@
         });
       }
     </script>
-
-
 
 
           </div>
