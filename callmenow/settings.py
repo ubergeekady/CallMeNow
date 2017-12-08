@@ -37,7 +37,10 @@ HOME_URL = "app.callmenowhq.com"
 
 # Application definition
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 INSTALLED_APPS = [
+    'corsheaders',
     'mainapp.apps.MainappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -48,6 +51,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
