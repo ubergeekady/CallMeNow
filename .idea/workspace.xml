@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="26696876-f498-426d-aff9-9827e349ca0b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/callmenow/settings.py" afterPath="$PROJECT_DIR$/callmenow/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/templates/emails/email_agentinvite.html" afterPath="$PROJECT_DIR$/mainapp/templates/emails/email_agentinvite.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/templates/emails/email_forgotpassword.html" afterPath="$PROJECT_DIR$/mainapp/templates/emails/email_forgotpassword.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/templates/emails/email_signup.html" afterPath="$PROJECT_DIR$/mainapp/templates/emails/email_signup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/views.py" afterPath="$PROJECT_DIR$/mainapp/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -117,8 +112,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/callmenow/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+            <state relative-caret-position="169">
+              <caret line="90" column="8" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -799,8 +794,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/callmenow/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        <state relative-caret-position="169">
+          <caret line="90" column="8" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
           <folding />
         </state>
       </provider>
