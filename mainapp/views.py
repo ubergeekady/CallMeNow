@@ -36,6 +36,7 @@ def index(request):
 
     if request.method == 'POST':
         email = request.POST['email'].lower()
+        email = email.lstrip().rstrip()
         if not is_email(email):
             return render(request, 'mainapp/0login.html', {'error': 'Invalid Email Address', 'request' : request.POST})
 
@@ -923,6 +924,7 @@ def paddle_webhook(request):
 
 @csrf_exempt
 def available(request, widget_id):
+    homeurl = "http://" + django_settings.HOME_URL
     if request.method == 'POST':
         return HttpResponse(json.dumps({"live":False, "error": "Only GET requests"}, indent=2))
     try:
@@ -971,8 +973,8 @@ def available(request, widget_id):
     message['showalert'] = widgetobj.appearance_showalert
     message['showalert_after'] = widgetobj.appearance_showalert_after
     message['playsoundonalert'] = widgetobj.appearance_playsoundonalert
-    message['html'] = "/static/widget/widget.html"
-    message['img'] = "/static/widget/"+widgetobj.appearance_buttonimage
+    message['html'] = homeurl+"/static/widget/widget.html"
+    message['img'] = homeurl+"/static/widget/"+widgetobj.appearance_buttonimage
     #message['date'] =  ['Today', 'Tomorrow', 'Friday']
     message['time'] = ["8 - 9 AM","9 - 10 AM","10 - 11 AM","11 - 12 AM","12 - 1 PM","1 - 2 PM","2 PM - 3 PM","3 PM - 4 PM","4 PM - 5 PM","5 PM - 6 PM","6 PM - 7 PM","7 PM - 8 PM","8 PM - 9 PM"]
     message['alert'] = {
@@ -1616,6 +1618,7 @@ def plivo_agentfirst_answer_url(request, uuid):
                 except:
                     print("exception setting up agent.currently_busy")
                 callobject.save()
+                notify_missed_call(callobject)
                 ProcessNextCall(callobject.widget.id)
             return HttpResponse("")
 
@@ -1863,7 +1866,7 @@ def notify_newlead(leadobj):
                  "best_time" : leadobj.best_time_to_contact,
                  "ipaddress" : leadobj.ipaddress,
                  "timezone": tzone,})
-            subject = "New Lead At CallMeNow"
+            subject = "New Lead At CallMeNow "+ str(leadobj.id)
             callmenow_email(subject, html_content, profile.user.email)
 
 
@@ -1892,12 +1895,14 @@ def notify_missed_call(callobj):
                 {"widgetid": callobj.widget.id,
                  "widgetname": callobj.widget.name,
                  "leadid": callobj.lead.id,
-                 "callid" : callobj.id,
+                 "callid" : callobj.callmenow_uuid,
+                 "callmenow_status" : callobj.callmenow_status,
+                 "callmenow_comments" : callobj.callmenow_comments,
                  "phone": callobj.lead.phone,
                  "date": callobj.datetime,
                  "ipaddress" : callobj.lead.ipaddress,
                  "timezone": tzone,})
-            subject = "New Missed Call At CallMeNow"
+            subject = "New Missed Call At CallMeNow "+callobj.callmenow_uuid
             callmenow_email(subject, html_content, profile.user.email)
 
 def notify_completed_call(callobj):
@@ -1925,7 +1930,7 @@ def notify_completed_call(callobj):
                 {"widgetid": callobj.widget.id,
                  "widgetname": callobj.widget.name,
                  "leadid": callobj.lead.id,
-                 "callid" : callobj.id,
+                 "callid" : callobj.callmenow_uuid,
                  "phone": callobj.lead.phone,
                  "agent": callobj.agent.name,
                  "callmenow_status" : callobj.callmenow_status,
@@ -1934,7 +1939,7 @@ def notify_completed_call(callobj):
                  "recordurl" : callobj.record_url,
                  "ipaddress" : callobj.lead.ipaddress,
                  "timezone": tzone,})
-            subject = "New Completed Call At CallMeNow"
+            subject = "New Completed Call At CallMeNow "+ callobj.callmenow_uuid
             callmenow_email(subject, html_content, profile.user.email)
 
 def get_account_limits(account):

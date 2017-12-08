@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'a^*b=38e%x24wycmeb*wyw&do1q=qn1d&_rrgeo!54a$ii)6ur'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["*"]
 SECURE_REDIRECT_EXEMPT = [r"^widgetapi/",r"^plivo/"]
 SECURE_SSL_REDIRECT = True
@@ -85,14 +85,14 @@ WSGI_APPLICATION = 'callmenow.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
-
 DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+DATABASES1 = {
   'default': {
   'ENGINE': 'django.db.backends.postgresql_psycopg2',
   'NAME': 'callmenow',
@@ -173,9 +173,9 @@ EMAIL_HOST_PASSWORD = '107b1821-551e-46c9-baa0-f21202694f9a'
 EMAIL_USE_TLS = True
 
 #Rollbar Configuration
-#ROLLBAR = {
-#    'access_token': '241a012818be46e192e072c89fd64b20',
-#    'environment': 'development' if DEBUG else 'production',
-#    'branch': 'master',
-#    'root': '/home/callmenow/callmenow',
-#}
+ROLLBAR = {
+    'access_token': '241a012818be46e192e072c89fd64b20',
+    'environment': 'development' if DEBUG else 'production',
+    'branch': 'master',
+    'root': '/home/callmenow/callmenow',
+}

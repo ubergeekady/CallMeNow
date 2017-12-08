@@ -2,86 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26696876-f498-426d-aff9-9827e349ca0b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0002_accounts_userprofile.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0003_userprofile_account.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0004_auto_20171101_0732.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0005_auto_20171101_0911.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0006_widget.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0007_auto_20171102_1523.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0008_plans.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0009_auto_20171102_1641.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0010_auto_20171102_1642.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0011_auto_20171102_1644.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0012_subscriptions.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0013_accounts_timezone.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0014_auto_20171105_1057.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0015_auto_20171105_1101.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0016_auto_20171105_1112.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0017_forgotpassword.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0018_auto_20171105_1151.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0019_userprofile_available.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0020_widgetagent.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0021_leads.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0022_auto_20171110_1451.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0023_callqueue.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0024_auto_20171110_1701.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0025_callqueue_ipaddress.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0026_calls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0027_auto_20171110_1836.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0028_auto_20171110_1839.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0029_remove_calls_plivo_bleg_status.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0030_calls_plivo_aleg_hangup_cause.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0031_auto_20171111_1325.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0032_calls_plivo_bleg_duration.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0033_calls_bleg_phone_number.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0034_calls_agent_id.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0035_auto_20171111_1542.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0036_auto_20171111_1627.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0037_calls_record_url.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0038_leads_lead_owner.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0039_auto_20171118_1517.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0040_leads_datetime.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0041_calls_datetime.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0042_callqueue_agent_id.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0043_notes.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0044_notes_timestamp.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0045_auto_20171120_1558.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0046_auto_20171120_1628.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0047_auto_20171120_1635.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0048_auto_20171120_1641.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0049_auto_20171120_1700.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0050_auto_20171120_1740.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0051_auto_20171120_1845.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0052_auto_20171121_1948.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0053_auto_20171123_0408.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0054_auto_20171126_0216.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0055_accounts_callerid.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0056_auto_20171126_0323.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0057_countries.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0058_widget_allowed_countries.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0059_auto_20171129_0507.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0060_auto_20171129_0732.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0061_auto_20171129_0925.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0062_calls_account.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0063_auto_20171202_0456.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0064_auto_20171202_1251.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0065_auto_20171203_0714.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0066_countries_dial_code.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0067_auto_20171203_1305.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0068_accounts_onboarded.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0069_auto_20171204_0904.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0070_accounts_firstpromoter_authid.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0071_auto_20171204_1043.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0072_auto_20171204_1918.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0073_auto_20171204_1920.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0074_plans_subscriptions.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0075_auto_20171204_2002.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0076_auto_20171204_2033.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0077_auto_20171205_1004.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0078_auto_20171205_1857.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0079_auto_20171205_1858.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mainapp/migrations/0080_auto_20171205_1940.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/mainapp/migrations/0001_initial.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/callmenow/settings.py" afterPath="$PROJECT_DIR$/callmenow/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/templates/emails/email_agentinvite.html" afterPath="$PROJECT_DIR$/mainapp/templates/emails/email_agentinvite.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/templates/emails/email_forgotpassword.html" afterPath="$PROJECT_DIR$/mainapp/templates/emails/email_forgotpassword.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/templates/emails/email_signup.html" afterPath="$PROJECT_DIR$/mainapp/templates/emails/email_signup.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/views.py" afterPath="$PROJECT_DIR$/mainapp/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -95,9 +21,11 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-              <folding />
+            <state relative-caret-position="302">
+              <caret line="1936" column="29" lean-forward="true" selection-start-line="1936" selection-start-column="29" selection-end-line="1936" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#54#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,7 +33,7 @@
       <file leaf-file-name="middleware.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainapp/middleware.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="240">
               <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
@@ -114,64 +42,62 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lead-detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/lead-detail.html">
+      <file leaf-file-name="admin_newsignup.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/admin_newsignup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" column="17" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+            <state relative-caret-position="1860">
+              <caret line="124" column="16" lean-forward="true" selection-start-line="124" selection-start-column="16" selection-end-line="124" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mainapp/static/assets/css/style.css">
+      <file leaf-file-name="notify_completedcall.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/notify_completedcall.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181875">
-              <caret line="12125" column="13" lean-forward="false" selection-start-line="12125" selection-start-column="13" selection-end-line="12125" selection-end-column="13" />
+            <state relative-caret-position="-252">
+              <caret line="104" column="38" lean-forward="false" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/callmenow/settings.py">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="91" column="4" lean-forward="false" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
+            <state relative-caret-position="259">
+              <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="0001_initial.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mainapp/migrations/0001_initial.py">
+      <file leaf-file-name="notify_missedcall.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/notify_missedcall.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3297">
-              <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+            <state relative-caret-position="158">
+              <caret line="105" column="65" lean-forward="false" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <file leaf-file-name="widgets.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/widgets.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="15">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mainapp/urls.py">
+      <file leaf-file-name="notify_newlead.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/notify_newlead.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="335">
+              <caret line="105" column="62" lean-forward="false" selection-start-line="105" selection-start-column="62" selection-end-line="105" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -179,11 +105,21 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+            <state relative-caret-position="143">
+              <caret line="166" column="22" lean-forward="false" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="22" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/callmenow/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -222,7 +158,6 @@
       <find>refe</find>
       <find>home</find>
       <find>settings</find>
-      <find>homeurl</find>
       <find>available</find>
       <find>directcall</find>
       <find>lead-Detail</find>
@@ -230,6 +165,7 @@
       <find>django</find>
       <find>razorpay</find>
       <find>user-info-list</find>
+      <find>homeurl</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -238,9 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mainapp/templates/500.html" />
-        <option value="$PROJECT_DIR$/mainapp/static/assets/js/tippy.all.min.js" />
-        <option value="$PROJECT_DIR$/mainapp/templates/mainapp/changepassword.html" />
         <option value="$PROJECT_DIR$/mainapp/templates/mainapp/ajax_notes.html" />
         <option value="$PROJECT_DIR$/mainapp/templates/mainapp/team.html" />
         <option value="$PROJECT_DIR$/mainapp/apps.py" />
@@ -280,14 +213,17 @@
         <option value="$PROJECT_DIR$/mainapp/templates/mainapp/billing_detail.html" />
         <option value="$PROJECT_DIR$/mainapp/migrations/0078_auto_20171205_1857.py" />
         <option value="$PROJECT_DIR$/mainapp/templates/mainapp/settings.html" />
-        <option value="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" />
         <option value="$PROJECT_DIR$/mainapp/templates/mainapp/leads.html" />
         <option value="$PROJECT_DIR$/mainapp/static/assets/css/style.css" />
         <option value="$PROJECT_DIR$/mainapp/templates/mainapp/lead-detail.html" />
-        <option value="$PROJECT_DIR$/mainapp/views.py" />
         <option value="$PROJECT_DIR$/mainapp/middleware.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/mainapp/models.py" />
+        <option value="$PROJECT_DIR$/mainapp/templates/emails/email_signup.html" />
+        <option value="$PROJECT_DIR$/mainapp/templates/emails/email_forgotpassword.html" />
+        <option value="$PROJECT_DIR$/mainapp/templates/emails/email_agentinvite.html" />
+        <option value="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" />
+        <option value="$PROJECT_DIR$/mainapp/views.py" />
         <option value="$PROJECT_DIR$/callmenow/settings.py" />
       </list>
     </option>
@@ -480,7 +416,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/mainapp/views.py</url>
-          <line>710</line>
+          <line>711</line>
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="1" />
@@ -488,13 +424,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/edit-widgetappearance.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="29" column="11" lean-forward="false" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/team.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -545,27 +474,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/email_agentinvite.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="89" column="214" lean-forward="false" selection-start-line="89" selection-start-column="214" selection-end-line="89" selection-end-column="214" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/email_signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="86" column="11" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="147" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/admin_newsignup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="102" column="10" lean-forward="false" selection-start-line="102" selection-start-column="10" selection-end-line="102" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mainapp/static/widget/widget.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2565">
@@ -598,27 +506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/notify_newlead.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="105" column="62" lean-forward="false" selection-start-line="105" selection-start-column="62" selection-end-line="105" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/notify_missedcall.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="103" column="46" lean-forward="false" selection-start-line="103" selection-start-column="46" selection-end-line="103" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/notify_completedcall.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="104" column="38" lean-forward="false" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -682,13 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/widgets.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -757,14 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mainapp/static/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181875">
@@ -778,16 +650,6 @@
         <state relative-caret-position="705">
           <caret line="47" column="17" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/middleware.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -825,16 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mainapp/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3297">
@@ -843,18 +695,112 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/email_signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="115" column="286" lean-forward="false" selection-start-line="115" selection-start-column="286" selection-end-line="115" selection-end-column="286" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/email_forgotpassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="115" column="217" lean-forward="false" selection-start-line="115" selection-start-column="217" selection-end-line="115" selection-end-column="217" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/email_agentinvite.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="115" column="217" lean-forward="false" selection-start-line="115" selection-start-column="217" selection-end-line="115" selection-end-column="217" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/notify_completedcall.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-252">
+          <caret line="104" column="38" lean-forward="false" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/notify_newlead.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="105" column="62" lean-forward="false" selection-start-line="105" selection-start-column="62" selection-end-line="105" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/admin_newsignup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1860">
+          <caret line="124" column="16" lean-forward="true" selection-start-line="124" selection-start-column="16" selection-end-line="124" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/middleware.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="166" column="22" lean-forward="false" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/widgets.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/templates/emails/notify_missedcall.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="105" column="65" lean-forward="false" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mainapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-          <folding />
+        <state relative-caret-position="302">
+          <caret line="1936" column="29" lean-forward="true" selection-start-line="1936" selection-start-column="29" selection-end-line="1936" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/callmenow/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="91" column="4" lean-forward="false" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
+        <state relative-caret-position="209">
+          <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
           <folding />
         </state>
       </provider>
