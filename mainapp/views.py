@@ -1912,7 +1912,7 @@ def notify_completed_call(callobj):
         if profile.sms_completed_calls:
             client = plivo.RestClient(auth_id=django_settings.PLIVO_AUTH_ID,
                                       auth_token=django_settings.PLIVO_AUTH_TOKEN)
-            message = "You have a new missed call at CallMeNow \n\nContact Number : "+callobj.lead.phone+"\n\nWidget Name: "+ callobj.widget.name +"\n\nCall Duration: "+ callobj.plivo_aleg_duration
+            message = "You have a new completed call at CallMeNow \n\nContact Number : "+callobj.lead.phone+"\n\nWidget Name: "+ callobj.widget.name +"\n\nCall Duration: "+ str(callobj.plivo_aleg_duration)
             response = client.messages.create(src='16282048694', dst=profile.phone, text=message)
         if profile.email_completed_calls:
             reader = geolite2.reader()
