@@ -231,7 +231,7 @@ var callmenow = function(wid) {
                 }
                 if(s.callmenow_status == 'call-completed') {
                     clearInterval(callmenowInt);
-                    cm.getId('callmenow-body-message').innerHTML = "Call Completed. Thank You<br /><br /><img src='"+callmenow_base_url+"/static/widget/hangup.jpg'><br /><br />"
+                    cm.getId('callmenow-body-message').innerHTML = "Call Completed. Thank You<br /><br /><img src='"+callmenow_base_url+"/static/widget/hangup.jpg' width=200 height=200><br /><br />"
                     setTimeout(function() {
                         //cm.getId('callmenow-body-sub').innerHTML = s.callmenow_status + s.callmenow_comments
                         cm.getId('callmenow-body').classList.add('callmenow-hide');

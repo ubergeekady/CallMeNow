@@ -1902,7 +1902,7 @@ def notify_missed_call(callobj):
                  "date": callobj.datetime,
                  "ipaddress" : callobj.lead.ipaddress,
                  "timezone": tzone,})
-            subject = "New Missed Call At CallMeNow "+callobj.callmenow_uuid
+            subject = "New Missed Call At CallMeNow "+callobj.id
             callmenow_email(subject, html_content, profile.user.email)
 
 def notify_completed_call(callobj):
@@ -1939,7 +1939,7 @@ def notify_completed_call(callobj):
                  "recordurl" : callobj.record_url,
                  "ipaddress" : callobj.lead.ipaddress,
                  "timezone": tzone,})
-            subject = "New Completed Call At CallMeNow "+ callobj.callmenow_uuid
+            subject = "New Completed Call At CallMeNow "+ callobj.id
             callmenow_email(subject, html_content, profile.user.email)
 
 def get_account_limits(account):
