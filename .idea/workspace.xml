@@ -16,8 +16,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mainapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="1938" column="48" lean-forward="true" selection-start-line="1938" selection-start-column="48" selection-end-line="1938" selection-end-column="48" />
+            <state relative-caret-position="255">
+              <caret line="595" column="3" lean-forward="false" selection-start-line="595" selection-start-column="3" selection-end-line="595" selection-end-column="3" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -28,8 +28,8 @@
       <file leaf-file-name="sdk.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainapp/static/widget/sdk.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="233" column="163" lean-forward="false" selection-start-line="233" selection-start-column="163" selection-end-line="233" selection-end-column="184" />
+            <state relative-caret-position="235">
+              <caret line="273" column="9" lean-forward="true" selection-start-line="273" selection-start-column="9" selection-end-line="273" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -152,7 +152,6 @@
       <find>home</find>
       <find>settings</find>
       <find>available</find>
-      <find>directcall</find>
       <find>lead-Detail</find>
       <find>sign_</find>
       <find>django</find>
@@ -161,6 +160,7 @@
       <find>homeurl</find>
       <find>Call completed</find>
       <find>call_from</find>
+      <find>directcall</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -411,7 +411,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/mainapp/views.py</url>
-          <line>711</line>
+          <line>710</line>
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="1" />
@@ -769,14 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/static/widget/sdk.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="233" column="163" lean-forward="false" selection-start-line="233" selection-start-column="163" selection-end-line="233" selection-end-column="184" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mainapp/static/widget/sdk-l.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -793,10 +785,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/static/widget/sdk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="273" column="9" lean-forward="true" selection-start-line="273" selection-start-column="9" selection-end-line="273" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mainapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="1938" column="48" lean-forward="true" selection-start-line="1938" selection-start-column="48" selection-end-line="1938" selection-end-column="48" />
+        <state relative-caret-position="255">
+          <caret line="595" column="3" lean-forward="false" selection-start-line="595" selection-start-column="3" selection-end-line="595" selection-end-column="3" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>

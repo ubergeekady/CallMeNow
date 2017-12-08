@@ -586,7 +586,6 @@ def editappearance(request, widget_id):
         return render(request, 'mainapp/edit-widgetappearance.html', {'widgetobj': widgetobj})
 
 
-@login_required
 def directcall(request, widget_id):
     widgetobj = get_object_or_404(Widget, id =widget_id)
     if django_settings.HOME_URL == "8a3c0b62.ngrok.io":
