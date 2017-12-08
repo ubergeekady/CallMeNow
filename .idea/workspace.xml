@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26696876-f498-426d-aff9-9827e349ca0b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/static/widget/sdk-l.js" afterPath="$PROJECT_DIR$/mainapp/static/widget/sdk-l.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/static/widget/sdk-s.js" afterPath="$PROJECT_DIR$/mainapp/static/widget/sdk-s.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/static/widget/sdk.js" afterPath="$PROJECT_DIR$/mainapp/static/widget/sdk.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/views.py" afterPath="$PROJECT_DIR$/mainapp/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +16,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mainapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="1991" column="21" lean-forward="true" selection-start-line="1991" selection-start-column="21" selection-end-line="1991" selection-end-column="21" />
+            <state relative-caret-position="285">
+              <caret line="801" column="19" lean-forward="true" selection-start-line="801" selection-start-column="19" selection-end-line="801" selection-end-column="19" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -134,7 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Subscriptions</find>
       <find>Leads</find>
       <find>list_of_ava</find>
       <find>exception-call-hangup</find>
@@ -164,6 +160,7 @@
       <find>user-info-list</find>
       <find>homeurl</find>
       <find>Call completed</find>
+      <find>call_from</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -219,10 +216,10 @@
         <option value="$PROJECT_DIR$/mainapp/templates/emails/email_agentinvite.html" />
         <option value="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" />
         <option value="$PROJECT_DIR$/callmenow/settings.py" />
-        <option value="$PROJECT_DIR$/mainapp/views.py" />
         <option value="$PROJECT_DIR$/mainapp/static/widget/sdk.js" />
         <option value="$PROJECT_DIR$/mainapp/static/widget/sdk-l.js" />
         <option value="$PROJECT_DIR$/mainapp/static/widget/sdk-s.js" />
+        <option value="$PROJECT_DIR$/mainapp/views.py" />
       </list>
     </option>
   </component>
@@ -798,8 +795,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mainapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="1991" column="21" lean-forward="true" selection-start-line="1991" selection-start-column="21" selection-end-line="1991" selection-end-column="21" />
+        <state relative-caret-position="285">
+          <caret line="801" column="19" lean-forward="true" selection-start-line="801" selection-start-column="19" selection-end-line="801" selection-end-column="19" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
