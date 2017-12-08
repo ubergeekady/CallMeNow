@@ -82,11 +82,11 @@ class Widget(models.Model):
     appearance_calltext  = models.CharField(max_length=100, default="Would You Like To Receive A Call From Us Right Now ?")
     appearance_leadtext  = models.CharField(max_length=100, default="We Are Not Around. Please Leave Your Number To Receive A Callback Soon")
     appearance_leadthankyoutext  = models.CharField(max_length=100, default="Thank you, we will get in touch with you soon")
-    appearance_alert_textcolor = models.CharField(max_length=10, default="black")
-    appearance_alert_background = models.CharField(max_length=10, default="white")
-    appearance_body_textcolor = models.CharField(max_length=10, default="black")
-    appearance_body_background  = models.CharField(max_length=10, default="white")
-    appearance_position = models.CharField(max_length=10, default="right")
+    appearance_alert_textcolor = models.CharField(max_length=50, default="black")
+    appearance_alert_background = models.CharField(max_length=50, default="white")
+    appearance_body_textcolor = models.CharField(max_length=50, default="black")
+    appearance_body_background  = models.CharField(max_length=50, default="white")
+    appearance_position = models.CharField(max_length=50, default="right")
     appearance_buttonimage  = models.CharField(max_length=50, default="button1.gif")
 
     def __str__(self):
@@ -191,5 +191,5 @@ class Calls(models.Model):
 
 class Countries(models.Model):
     country_name = models.CharField(max_length=100, blank=False)
-    country_code = models.CharField(max_length=2, blank=False)
+    country_code = models.CharField(max_length=10, blank=False)
     dial_code = models.IntegerField()
