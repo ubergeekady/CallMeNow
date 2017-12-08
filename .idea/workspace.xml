@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26696876-f498-426d-aff9-9827e349ca0b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/views.py" afterPath="$PROJECT_DIR$/mainapp/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="595" column="3" lean-forward="false" selection-start-line="595" selection-start-column="3" selection-end-line="595" selection-end-column="3" />
+            <state relative-caret-position="351">
+              <caret line="1475" column="37" lean-forward="true" selection-start-line="1475" selection-start-column="37" selection-end-line="1475" selection-end-column="37" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -67,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+            <state relative-caret-position="231">
+              <caret line="37" column="27" lean-forward="false" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -214,12 +214,12 @@
         <option value="$PROJECT_DIR$/mainapp/templates/emails/email_signup.html" />
         <option value="$PROJECT_DIR$/mainapp/templates/emails/email_forgotpassword.html" />
         <option value="$PROJECT_DIR$/mainapp/templates/emails/email_agentinvite.html" />
-        <option value="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" />
         <option value="$PROJECT_DIR$/callmenow/settings.py" />
         <option value="$PROJECT_DIR$/mainapp/static/widget/sdk.js" />
         <option value="$PROJECT_DIR$/mainapp/static/widget/sdk-l.js" />
         <option value="$PROJECT_DIR$/mainapp/static/widget/sdk-s.js" />
         <option value="$PROJECT_DIR$/mainapp/views.py" />
+        <option value="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" />
       </list>
     </option>
   </component>
@@ -717,14 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mainapp/middleware.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -795,11 +787,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mainapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="595" column="3" lean-forward="false" selection-start-line="595" selection-start-column="3" selection-end-line="595" selection-end-column="3" />
+        <state relative-caret-position="351">
+          <caret line="1475" column="37" lean-forward="true" selection-start-line="1475" selection-start-column="37" selection-end-line="1475" selection-end-column="37" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainapp/templates/mainapp/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="37" column="27" lean-forward="false" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
